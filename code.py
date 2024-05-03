@@ -22,18 +22,19 @@ password = os.getenv("WIFI_PASSWORD")
 
 # Initialize WiFi Pool (There can be only 1 pool & top of script)
 radio = wifi.radio
-pool = socketpool.SocketPool(radio)
+pool = socketpool.SocketPool(radio) 
+print("My MAC addr:", [hex(i) for i in wifi.radio.mac_address])
 
-print("Connecting to AP...")
+print(f"Connecting to AP '{ssid}'...")
 while not wifi.radio.ipv4_address:
     try:
         wifi.radio.connect(ssid, password)
     except ConnectionError as e:
         print("could not connect to AP, retrying: ", e)
 print("Connected to", str(radio.ap_info.ssid, "utf-8"), "\tRSSI:", radio.ap_info.rssi)
+print("My IP address is", wifi.radio.ipv4_address)
 
 pixel[0] = (255, 255, 0, 0.5)  # turn neopixel to yellow
-
 
 # Initialize a requests session
 ssl_context = ssl.create_default_context()
