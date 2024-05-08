@@ -8,4 +8,6 @@
 # change the path below for your particulary system configuration
 # the code below is for Windows and assumes the circuitpython is mounted at E:
 cp /e/code.py code.py
-cp /e/IT8951/spi.py IT8951/spi.py
+cp /e/IT8951/spi.py IT8951-freezer-disp/src/IT8951/spi.py
+cp /e/IT8951/interface.py IT8951-freezer-disp/src/IT8951/interface.py
+cp /e/IT8951/display.py IT8951-freezer-disp/src/IT8951/display.py

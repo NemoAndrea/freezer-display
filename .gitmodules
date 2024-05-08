@@ -1,0 +1,3 @@
+[submodule "IT8951-freezer-disp"]
+	path = IT8951-freezer-disp
+	url = https://github.com/NemoAndrea/IT8951-freezer-disp.git

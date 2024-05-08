@@ -11,38 +11,41 @@ import socketpool
 import adafruit_requests
 
 from IT8951.spi import SPI
+from IT8951.interface import EPD
+
+from IT8951.display import AutoEPDDisplay
 
 # Create a NeoPixel instance
 # Brightness of 0.3 is ample for the 1515 sized LED
 pros3.set_ldo2_power(True)  # Turn on the power to the NeoPixel
 pixel = neopixel.NeoPixel(board.NEOPIXEL, 1, brightness=0.3, auto_write=True, pixel_order=neopixel.GRB)  # dunno why the order is like this
 
-pixel[0] = (255, 0, 0, 0.5)  # start neopixel off with red
+pixel[0] = (255, 0, 0, 0.5)  # start neopixel off with red 
 
 ####################################################################################################
-# Get WiFi details, ensure these are setup in settings.toml
-ssid = os.getenv("WIFI_SSID")
-password = os.getenv("WIFI_PASSWORD")
+# # Get WiFi details, ensure these are setup in settings.toml
+# ssid = os.getenv("WIFI_SSID")
+# password = os.getenv("WIFI_PASSWORD")
 
-# Initialize WiFi Pool (There can be only 1 pool & top of script)
-radio = wifi.radio
-pool = socketpool.SocketPool(radio) 
-print("My MAC addr:", [hex(i) for i in wifi.radio.mac_address])
+# # Initialize WiFi Pool (There can be only 1 pool & top of script)
+# radio = wifi.radio
+# pool = socketpool.SocketPool(radio) 
+# print("My MAC addr:", [hex(i) for i in wifi.radio.mac_address])
 
-print(f"Connecting to AP '{ssid}'...")
-while not wifi.radio.ipv4_address:
-    try:
-        wifi.radio.connect(ssid, password)
-    except ConnectionError as e:
-        print("could not connect to AP, retrying: ", e)
-print("Connected to", str(radio.ap_info.ssid, "utf-8"), "\tRSSI:", radio.ap_info.rssi)
-print("My IP address is", wifi.radio.ipv4_address)
+# print(f"Connecting to AP '{ssid}'...")
+# while not wifi.radio.ipv4_address:
+#     try:
+#         wifi.radio.connect(ssid, password)
+#     except ConnectionError as e:
+#         print("could not connect to AP, retrying: ", e)
+# print("Connected to", str(radio.ap_info.ssid, "utf-8"), "\tRSSI:", radio.ap_info.rssi)
+# print("My IP address is", wifi.radio.ipv4_address)
 
-pixel[0] = (255, 255, 0, 0.5)  # turn neopixel to yellow
+# pixel[0] = (255, 255, 0, 0.5)  # turn neopixel to yellow
 
-# Initialize a requests session
-ssl_context = ssl.create_default_context()
-requests = adafruit_requests.Session(pool, ssl_context)
+# # Initialize a requests session
+# ssl_context = ssl.create_default_context()
+# requests = adafruit_requests.Session(pool, ssl_context)
 
 ####################################################################################################
 
@@ -129,7 +132,7 @@ def get_fridge_info(storageLayerID):
                 drawer = []
                 for (idx, box) in enumerate(boxes):
                     box_obj = Box(box["storageLayerID"], box["name"], comp_idx, col_idx, row_idx, idx)
-                    drawer.append(box_obj)
+                    drawer.append(box_obj) 
                 fridge.add_drawer(drawer)
 
     fridge.specify_fridge_size(num_columns, num_rows, num_compartments)
@@ -149,74 +152,29 @@ def get_fridge_info(storageLayerID):
 
 # we wire the reset pin of the e-ink adapter board to pin labelled 7 (A6, D7, IO7)
 def start_adapter_board():
+    print(">> resseting board")
     adapter_reset = digitalio.DigitalInOut(board.A7)
     adapter_reset.direction = digitalio.Direction.OUTPUT
-    adapter_reset.value = True  # and pull it high. Pulling it low will reset board.
+    adapter_reset.value = False  # pull low to reset board
+    time.sleep(1)
+    adapter_reset.value = True  # and pull it high. Pulling it low will reset board. 
+    time.sleep(1)  # give system some time to come online
 
 start_adapter_board()
 
-# class SPI:
-#     def __init__(self):
-        
-#         self.cs = digitalio.DigitalInOut(board.IO34)  # chip select pin
-#         self.cs.direction = digitalio.Direction.OUTPUT
-#         self.cs.value = True  # and pull it high. Pulling it low will reset board.
-        
 
-#         self.spi_bus = busio.SPI(board.SCK, MISO=board.MISO, MOSI=board.MOSI)
-#         while not self.spi_bus.try_lock():
-#             pass
-#         print("got lock on SPI bus.")
+# spi = SPI()  
 
-#         # NOTE: max spi clock is 24MHz
-#         self.spi_bus.configure(baudrate=1000000, phase=0, polarity=0)
+# spi.write_cmd(0x302)
 
-#     def write_cmd(self, cmd):  # cmd must be 2 byte number, e.g. 0xFF9F
-#         # the fixed preamble for 'commands' is 0x6000.
-#         data = [0x60,0x00, 0x00, 0x00]
+# print(spi.read(20))
 
-#         data[2] = (cmd >> 8) & 0xFF 
-#         data[3] = cmd & 0xFF 
-
-
-
-#         self.cs.value = False
-#         self.spi_bus.write(bytes(data)) #0x6000 -> 0x0302
-#         self.cs.value = True
-
-
-#     def read(self, numwords):
-#         '''
-#         Send preamble, and return a buffer of 16-bit unsigned ints of length count
-#         containing the data received.
-
-#         An SPI write or command must be sent beforehand, and this configures the returned data.
-#         A fixed preamble (MOSI) is required before data bits are returned on MISO. Preamble
-#         and returned data are on the same transaction (no CS=high in between).
-#         '''
-
-#         result = bytearray(numwords*2)
-
-#         self.cs.value = False
-#         self.spi_bus.write(bytes([0x10,0x00]))  # needs to be sent out before data is returned
-#         self.spi_bus.readinto(result)
-#         self.cs.value = True
-
-#         return result
-
-
-
-
-spi = SPI()  
-
-spi.write_cmd(0x302)
-
-time.sleep(0.05)
-
-print(spi.read(20))
-
+display = AutoEPDDisplay(vcom=-2.5) 
+#display.draw_full()
+print("#################### UPDATE PANEL")
+display.epd.display_area((0,0), (1872, 1404), 0)
 
 # finishing up
-spi.spi_bus.unlock()
+#spi.spi_bus.unlock()
 print("all done and unlocked") 
-time.sleep(60)
+time.sleep(2)
