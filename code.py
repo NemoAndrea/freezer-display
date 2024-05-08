@@ -1,12 +1,16 @@
 import time, gc, os
 import neopixel
 import board
+import digitalio
 import pros3
+import busio
 
 import wifi
 import ssl
 import socketpool
 import adafruit_requests
+
+from IT8951.spi import SPI
 
 # Create a NeoPixel instance
 # Brightness of 0.3 is ample for the 1515 sized LED
@@ -41,26 +45,27 @@ ssl_context = ssl.create_default_context()
 requests = adafruit_requests.Session(pool, ssl_context)
 
 ####################################################################################################
-print("Fetching from API... \n")
 
-BASEURL = "https://tudelft.elabjournal.com/api/v1/"
-JSON_GET_URL = "https://httpbin.org/get"
-fridge_ID = os.getenv("FRIDGE_STORAGE_ID")
+# print("Fetching from API... \n")
 
-headers = {
-    "Authorization": os.getenv("ELAB_API_TOKEN"),
-    "accept": "application/json"
-}
+# BASEURL = "https://tudelft.elabjournal.com/api/v1/"
+# JSON_GET_URL = "https://httpbin.org/get"
+# fridge_ID = os.getenv("FRIDGE_STORAGE_ID")
 
-# check if we get a nice 200 response from API (i.e. authorisation is good) 
-response = requests.get(BASEURL+"storage", headers=headers)
-if response.status_code != 200:
-    print("Did not get 200 response from API, got instead: ", response.status_code)
-else:
-    # API is all good, our key is good and we should be getting meaninful information
-    pixel[0] = (0, 255, 0, 0.5)  # turn neopixel to green
+# headers = {
+#     "Authorization": os.getenv("ELAB_API_TOKEN"),
+#     "accept": "application/json"
+# }
 
-time.sleep(0.3)
+# # check if we get a nice 200 response from API (i.e. authorisation is good) 
+# response = requests.get(BASEURL+"storage", headers=headers)
+# if response.status_code != 200:
+#     print("Did not get 200 response from API, got instead: ", response.status_code)
+# else:
+#     # API is all good, our key is good and we should be getting meaninful information
+#     pixel[0] = (0, 255, 0, 0.5)  # turn neopixel to green
+
+# time.sleep(0.3)
 
 ####################################################################################################
 
@@ -135,6 +140,83 @@ def get_fridge_info(storageLayerID):
     return fridge
 
 
-get_fridge_info(fridge_ID)
+#get_fridge_info(fridge_ID)
 
-time.sleep(2)
+####################################################################################################
+
+# https://esp32s3.com/images/pins_pros3.jpg
+# https://www.waveshare.com/wiki/10.3inch_e-Paper_HAT
+
+# we wire the reset pin of the e-ink adapter board to pin labelled 7 (A6, D7, IO7)
+def start_adapter_board():
+    adapter_reset = digitalio.DigitalInOut(board.A7)
+    adapter_reset.direction = digitalio.Direction.OUTPUT
+    adapter_reset.value = True  # and pull it high. Pulling it low will reset board.
+
+start_adapter_board()
+
+# class SPI:
+#     def __init__(self):
+        
+#         self.cs = digitalio.DigitalInOut(board.IO34)  # chip select pin
+#         self.cs.direction = digitalio.Direction.OUTPUT
+#         self.cs.value = True  # and pull it high. Pulling it low will reset board.
+        
+
+#         self.spi_bus = busio.SPI(board.SCK, MISO=board.MISO, MOSI=board.MOSI)
+#         while not self.spi_bus.try_lock():
+#             pass
+#         print("got lock on SPI bus.")
+
+#         # NOTE: max spi clock is 24MHz
+#         self.spi_bus.configure(baudrate=1000000, phase=0, polarity=0)
+
+#     def write_cmd(self, cmd):  # cmd must be 2 byte number, e.g. 0xFF9F
+#         # the fixed preamble for 'commands' is 0x6000.
+#         data = [0x60,0x00, 0x00, 0x00]
+
+#         data[2] = (cmd >> 8) & 0xFF 
+#         data[3] = cmd & 0xFF 
+
+
+
+#         self.cs.value = False
+#         self.spi_bus.write(bytes(data)) #0x6000 -> 0x0302
+#         self.cs.value = True
+
+
+#     def read(self, numwords):
+#         '''
+#         Send preamble, and return a buffer of 16-bit unsigned ints of length count
+#         containing the data received.
+
+#         An SPI write or command must be sent beforehand, and this configures the returned data.
+#         A fixed preamble (MOSI) is required before data bits are returned on MISO. Preamble
+#         and returned data are on the same transaction (no CS=high in between).
+#         '''
+
+#         result = bytearray(numwords*2)
+
+#         self.cs.value = False
+#         self.spi_bus.write(bytes([0x10,0x00]))  # needs to be sent out before data is returned
+#         self.spi_bus.readinto(result)
+#         self.cs.value = True
+
+#         return result
+
+
+
+
+spi = SPI()  
+
+spi.write_cmd(0x302)
+
+time.sleep(0.05)
+
+print(spi.read(20))
+
+
+# finishing up
+spi.spi_bus.unlock()
+print("all done and unlocked") 
+time.sleep(60)
