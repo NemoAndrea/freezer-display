@@ -10,10 +10,7 @@ import ssl
 import socketpool
 import adafruit_requests
 
-from IT8951.spi import SPI
-from IT8951.interface import EPD
-
-from IT8951.display import AutoEPDDisplay
+from freezermonitor import FreezerMonitor
 
 # Create a NeoPixel instance
 # Brightness of 0.3 is ample for the 1515 sized LED
@@ -163,16 +160,13 @@ def start_adapter_board():
 start_adapter_board()
 
 
-# spi = SPI()  
+freezer = FreezerMonitor(skip_splash=False)
+#freezer.draw_text()
 
-# spi.write_cmd(0x302)
 
-# print(spi.read(20))
+# root = display.root_group
+# display.draw_partial(root[0][0], mode=2) 
 
-display = AutoEPDDisplay(vcom=-2.5) 
-#display.draw_full()
-print("#################### UPDATE PANEL")
-display.epd.display_area((0,0), (1872, 1404), 0)
 
 # finishing up
 #spi.spi_bus.unlock()
