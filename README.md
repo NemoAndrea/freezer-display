@@ -1,4 +1,4 @@
-> [!!IMPORTANT]
+> [!IMPORTANT]
 > This project is a work-in-progress. I would not recommend trying to replicate the designs or consider the code as exemplary at this point. If you cannot wait, get in touch so we can collaborate.
 
 # 🧊 Wetlab Freezer display 	
