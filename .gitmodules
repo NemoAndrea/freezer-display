@@ -1,3 +1,6 @@
 [submodule "IT8951-freezer-disp"]
 	path = IT8951-freezer-disp
 	url = https://github.com/NemoAndrea/IT8951-freezer-disp.git
+[submodule "pcb/esp32s3"]
+	path = pcb/esp32s3
+	url = https://github.com/UnexpectedMaker/esp32s3.git
