@@ -21,6 +21,15 @@ The main sourced components:
 * [Unexpected Maker S3 Pro](https://esp32s3.com/pros3.html#home)
 * [Waveshare 10.3inch e-Paper E-Ink Display (1872x1404) with driver board](https://www.waveshare.com/product/displays/e-paper/epaper-1/10.3inch-e-paper-hat.htm). Currently the version with plastic coating is used for development, but the glass version would be preferred for cleanability. (Note that the glass version may have different dimensions and may need modifications to the designs)
 
+### Some possible future upgrades
+
+If other people turn out to find this kind of thing useful, there are many things that can be improved. For now I will probably not do any of these as they are not essentials. Let me know if you are interested in making your own freezer display; that will motivate me to implement these.
+
+* Landscape/portrait mode switching and sensor to sense this directly
+* Some capacitive buttons (no ingress point, can use capacitive button pins on ESP32)
+* Proper weather (or in this case Lab Goo™) sealing on the USB port
+* Implement a proper `displayio` driver for the display, so native functions can be used.
+
 
 ### Development workflow 🏗
 
