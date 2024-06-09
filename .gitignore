@@ -1,8 +1,10 @@
 .vscode/*
 *afdesign
+TODO.md
 
 # FreeCAD
 *.FCStd1
+*.FCBak
 */.temp/*
 
 # For PCBs designed using KiCad: https://www.kicad.org/
