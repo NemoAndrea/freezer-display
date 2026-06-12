@@ -135,7 +135,7 @@ def get_fridge_info(storageLayerID):
     fridge.specify_fridge_size(num_columns, num_rows, num_compartments)
 
     
-    pixel[0] = (0, 255, 0, 0.5)  # turn neopixel to green
+    pixel[0] = (0, 255, 0, 0.6)  # turn neopixel to green
     print(fridge)
     return fridge
 
@@ -150,7 +150,7 @@ def get_fridge_info(storageLayerID):
 # we wire the reset pin of the e-ink adapter board to pin labelled 7 (A6, D7, IO7)
 def start_adapter_board():
     print(">> resseting board")
-    adapter_reset = digitalio.DigitalInOut(board.A7)
+    adapter_reset = digitalio.DigitalInOut(board.A6)
     adapter_reset.direction = digitalio.Direction.OUTPUT
     adapter_reset.value = False  # pull low to reset board
     time.sleep(1)
@@ -166,7 +166,6 @@ freezer = FreezerMonitor(skip_splash=False)
 
 # root = display.root_group
 # display.draw_partial(root[0][0], mode=2) 
-
 
 # finishing up
 #spi.spi_bus.unlock()

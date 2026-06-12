@@ -1,6 +1,8 @@
 .vscode/*
 *afdesign
-TODO.md
+
+# files that can be generated from commited source files
+/assets/bmp/*.bmp
 
 # FreeCAD
 *.FCStd1
