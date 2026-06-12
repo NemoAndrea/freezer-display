@@ -1,0 +1,826 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1404 1872" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:1.5;">
+    <rect id="background" x="0" y="0" width="1404" height="1872" style="fill:rgb(233,233,233);"/>
+    <g id="header-backdrop" transform="matrix(2.07012,0,0,0.711911,-9.77221,-55.8318)">
+        <rect x="33.907" y="78.425" width="619.85" height="80.066" style="fill:white;"/>
+    </g>
+    <g id="compartment-group" transform="matrix(1,0,0,1,0,46.981)">
+        <g id="triple-drawer-group" transform="matrix(1,0,0,1,0,-67.0831)">
+            <g id="drawer-double" transform="matrix(1,0,0,1,436.537,0)">
+                <g id="backdrop" transform="matrix(1.11481,0,0,0.976725,-7.81233,49.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g transform="matrix(1.11481,0,0,0.976725,-16.8123,40.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="fill:white;stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g id="vertical">
+                    <g id="vertical-div" serif:id="vertical div" transform="matrix(7.67851e-17,0.42363,-1,2.06858e-17,486.275,124.297)">
+                        <path d="M60.419,220.812L387.444,220.812" style="fill:none;stroke:black;stroke-width:5.21px;stroke-linejoin:round;"/>
+                    </g>
+                    <g id="owner-label" transform="matrix(1.21746,0,0,0.645759,-886.411,-261.259)">
+                        <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,170.592,19.4224)">
+                        <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                    </g>
+                </g>
+                <g id="owner-label1" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-1091.46,-261.259)">
+                    <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                </g>
+                <g transform="matrix(1,0,0,1,-34.4519,19.4224)">
+                    <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                </g>
+            </g>
+            <g id="drawer-double1" serif:id="drawer-double" transform="matrix(1,0,0,1,873.074,0)">
+                <g id="backdrop1" serif:id="backdrop" transform="matrix(1.11481,0,0,0.976725,-7.81233,49.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g transform="matrix(1.11481,0,0,0.976725,-16.8123,40.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="fill:white;stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g id="vertical1" serif:id="vertical">
+                    <g id="vertical-div1" serif:id="vertical div" transform="matrix(7.67851e-17,0.42363,-1,2.06858e-17,486.275,124.297)">
+                        <path d="M60.419,220.812L387.444,220.812" style="fill:none;stroke:black;stroke-width:5.21px;stroke-linejoin:round;"/>
+                    </g>
+                    <g id="owner-label2" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-886.411,-261.259)">
+                        <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,170.592,19.4224)">
+                        <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                    </g>
+                </g>
+                <g id="owner-label3" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-1091.46,-261.259)">
+                    <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                </g>
+                <g transform="matrix(1,0,0,1,-34.4519,19.4224)">
+                    <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                </g>
+            </g>
+            <g id="drawer-double2" serif:id="drawer-double">
+                <g id="backdrop2" serif:id="backdrop" transform="matrix(1.11481,0,0,0.976725,-7.81233,49.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g transform="matrix(1.11481,0,0,0.976725,-16.8123,40.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="fill:white;stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g id="vertical2" serif:id="vertical">
+                    <g id="vertical-div2" serif:id="vertical div" transform="matrix(7.67851e-17,0.42363,-1,2.06858e-17,486.275,124.297)">
+                        <path d="M60.419,220.812L387.444,220.812" style="fill:none;stroke:black;stroke-width:5.21px;stroke-linejoin:round;"/>
+                    </g>
+                    <g id="owner-label4" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-886.411,-261.259)">
+                        <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,170.592,19.4224)">
+                        <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                    </g>
+                </g>
+                <g id="owner-label5" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-1091.46,-261.259)">
+                    <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                </g>
+                <g transform="matrix(1,0,0,1,-34.4519,19.4224)">
+                    <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                </g>
+            </g>
+        </g>
+        <g id="triple-drawer-group1" serif:id="triple-drawer-group" transform="matrix(1,0,0,1,2.27374e-13,270.599)">
+            <g id="drawer-double3" serif:id="drawer-double" transform="matrix(1,0,0,1,436.537,0)">
+                <g id="backdrop3" serif:id="backdrop" transform="matrix(1.11481,0,0,0.976725,-7.81233,49.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g transform="matrix(1.11481,0,0,0.976725,-16.8123,40.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="fill:white;stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g id="vertical3" serif:id="vertical">
+                    <g id="vertical-div3" serif:id="vertical div" transform="matrix(7.67851e-17,0.42363,-1,2.06858e-17,486.275,124.297)">
+                        <path d="M60.419,220.812L387.444,220.812" style="fill:none;stroke:black;stroke-width:5.21px;stroke-linejoin:round;"/>
+                    </g>
+                    <g id="owner-label6" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-886.411,-261.259)">
+                        <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,170.592,19.4224)">
+                        <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                    </g>
+                </g>
+                <g id="owner-label7" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-1091.46,-261.259)">
+                    <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                </g>
+                <g transform="matrix(1,0,0,1,-34.4519,19.4224)">
+                    <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                </g>
+            </g>
+            <g id="drawer-double4" serif:id="drawer-double" transform="matrix(1,0,0,1,873.074,0)">
+                <g id="backdrop4" serif:id="backdrop" transform="matrix(1.11481,0,0,0.976725,-7.81233,49.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g transform="matrix(1.11481,0,0,0.976725,-16.8123,40.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="fill:white;stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g id="vertical4" serif:id="vertical">
+                    <g id="vertical-div4" serif:id="vertical div" transform="matrix(7.67851e-17,0.42363,-1,2.06858e-17,486.275,124.297)">
+                        <path d="M60.419,220.812L387.444,220.812" style="fill:none;stroke:black;stroke-width:5.21px;stroke-linejoin:round;"/>
+                    </g>
+                    <g id="owner-label8" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-886.411,-261.259)">
+                        <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,170.592,19.4224)">
+                        <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                    </g>
+                </g>
+                <g id="owner-label9" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-1091.46,-261.259)">
+                    <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                </g>
+                <g transform="matrix(1,0,0,1,-34.4519,19.4224)">
+                    <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                </g>
+            </g>
+            <g id="drawer-double5" serif:id="drawer-double">
+                <g id="backdrop5" serif:id="backdrop" transform="matrix(1.11481,0,0,0.976725,-7.81233,49.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g transform="matrix(1.11481,0,0,0.976725,-16.8123,40.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="fill:white;stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g id="vertical5" serif:id="vertical">
+                    <g id="vertical-div5" serif:id="vertical div" transform="matrix(7.67851e-17,0.42363,-1,2.06858e-17,486.275,124.297)">
+                        <path d="M60.419,220.812L387.444,220.812" style="fill:none;stroke:black;stroke-width:5.21px;stroke-linejoin:round;"/>
+                    </g>
+                    <g id="owner-label10" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-886.411,-261.259)">
+                        <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,170.592,19.4224)">
+                        <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                    </g>
+                </g>
+                <g id="owner-label11" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-1091.46,-261.259)">
+                    <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                </g>
+                <g transform="matrix(1,0,0,1,-34.4519,19.4224)">
+                    <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                </g>
+            </g>
+        </g>
+        <g id="triple-drawer-group2" serif:id="triple-drawer-group" transform="matrix(1,0,0,1,-3.41061e-13,439.003)">
+            <g id="drawer-double6" serif:id="drawer-double" transform="matrix(1,0,0,1,436.537,0)">
+                <g id="backdrop6" serif:id="backdrop" transform="matrix(1.11481,0,0,0.976725,-7.81233,49.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g transform="matrix(1.11481,0,0,0.976725,-16.8123,40.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="fill:white;stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g id="vertical6" serif:id="vertical">
+                    <g id="vertical-div6" serif:id="vertical div" transform="matrix(7.67851e-17,0.42363,-1,2.06858e-17,486.275,124.297)">
+                        <path d="M60.419,220.812L387.444,220.812" style="fill:none;stroke:black;stroke-width:5.21px;stroke-linejoin:round;"/>
+                    </g>
+                    <g id="owner-label12" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-886.411,-261.259)">
+                        <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,170.592,19.4224)">
+                        <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                    </g>
+                </g>
+                <g id="owner-label13" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-1091.46,-261.259)">
+                    <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                </g>
+                <g transform="matrix(1,0,0,1,-34.4519,19.4224)">
+                    <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                </g>
+            </g>
+            <g id="drawer-double7" serif:id="drawer-double" transform="matrix(1,0,0,1,873.074,0)">
+                <g id="backdrop7" serif:id="backdrop" transform="matrix(1.11481,0,0,0.976725,-7.81233,49.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g transform="matrix(1.11481,0,0,0.976725,-16.8123,40.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="fill:white;stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g id="vertical7" serif:id="vertical">
+                    <g id="vertical-div7" serif:id="vertical div" transform="matrix(7.67851e-17,0.42363,-1,2.06858e-17,486.275,124.297)">
+                        <path d="M60.419,220.812L387.444,220.812" style="fill:none;stroke:black;stroke-width:5.21px;stroke-linejoin:round;"/>
+                    </g>
+                    <g id="owner-label14" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-886.411,-261.259)">
+                        <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,170.592,19.4224)">
+                        <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                    </g>
+                </g>
+                <g id="owner-label15" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-1091.46,-261.259)">
+                    <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                </g>
+                <g transform="matrix(1,0,0,1,-34.4519,19.4224)">
+                    <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                </g>
+            </g>
+            <g id="drawer-double8" serif:id="drawer-double">
+                <g id="backdrop8" serif:id="backdrop" transform="matrix(1.11481,0,0,0.976725,-7.81233,49.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g transform="matrix(1.11481,0,0,0.976725,-16.8123,40.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="fill:white;stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g id="vertical8" serif:id="vertical">
+                    <g id="vertical-div8" serif:id="vertical div" transform="matrix(7.67851e-17,0.42363,-1,2.06858e-17,486.275,124.297)">
+                        <path d="M60.419,220.812L387.444,220.812" style="fill:none;stroke:black;stroke-width:5.21px;stroke-linejoin:round;"/>
+                    </g>
+                    <g id="owner-label16" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-886.411,-261.259)">
+                        <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,170.592,19.4224)">
+                        <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                    </g>
+                </g>
+                <g id="owner-label17" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-1091.46,-261.259)">
+                    <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                </g>
+                <g transform="matrix(1,0,0,1,-34.4519,19.4224)">
+                    <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                </g>
+            </g>
+        </g>
+        <g id="triple-drawer-group3" serif:id="triple-drawer-group" transform="matrix(1,0,0,1,-3.41061e-13,603.636)">
+            <g id="drawer-double9" serif:id="drawer-double" transform="matrix(1,0,0,1,436.537,0)">
+                <g id="backdrop9" serif:id="backdrop" transform="matrix(1.11481,0,0,0.976725,-7.81233,49.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g transform="matrix(1.11481,0,0,0.976725,-16.8123,40.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="fill:white;stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g id="vertical9" serif:id="vertical">
+                    <g id="vertical-div9" serif:id="vertical div" transform="matrix(7.67851e-17,0.42363,-1,2.06858e-17,486.275,124.297)">
+                        <path d="M60.419,220.812L387.444,220.812" style="fill:none;stroke:black;stroke-width:5.21px;stroke-linejoin:round;"/>
+                    </g>
+                    <g id="owner-label18" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-886.411,-261.259)">
+                        <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,170.592,19.4224)">
+                        <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                    </g>
+                </g>
+                <g id="owner-label19" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-1091.46,-261.259)">
+                    <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                </g>
+                <g transform="matrix(1,0,0,1,-34.4519,19.4224)">
+                    <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                </g>
+            </g>
+            <g id="drawer-double10" serif:id="drawer-double" transform="matrix(1,0,0,1,873.074,0)">
+                <g id="backdrop10" serif:id="backdrop" transform="matrix(1.11481,0,0,0.976725,-7.81233,49.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g transform="matrix(1.11481,0,0,0.976725,-16.8123,40.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="fill:white;stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g id="vertical10" serif:id="vertical">
+                    <g id="vertical-div10" serif:id="vertical div" transform="matrix(7.67851e-17,0.42363,-1,2.06858e-17,486.275,124.297)">
+                        <path d="M60.419,220.812L387.444,220.812" style="fill:none;stroke:black;stroke-width:5.21px;stroke-linejoin:round;"/>
+                    </g>
+                    <g id="owner-label20" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-886.411,-261.259)">
+                        <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,170.592,19.4224)">
+                        <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                    </g>
+                </g>
+                <g id="owner-label21" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-1091.46,-261.259)">
+                    <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                </g>
+                <g transform="matrix(1,0,0,1,-34.4519,19.4224)">
+                    <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                </g>
+            </g>
+            <g id="drawer-double11" serif:id="drawer-double">
+                <g id="backdrop11" serif:id="backdrop" transform="matrix(1.11481,0,0,0.976725,-7.81233,49.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g transform="matrix(1.11481,0,0,0.976725,-16.8123,40.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="fill:white;stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g id="vertical11" serif:id="vertical">
+                    <g id="vertical-div11" serif:id="vertical div" transform="matrix(7.67851e-17,0.42363,-1,2.06858e-17,486.275,124.297)">
+                        <path d="M60.419,220.812L387.444,220.812" style="fill:none;stroke:black;stroke-width:5.21px;stroke-linejoin:round;"/>
+                    </g>
+                    <g id="owner-label22" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-886.411,-261.259)">
+                        <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,170.592,19.4224)">
+                        <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                    </g>
+                </g>
+                <g id="owner-label23" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-1091.46,-261.259)">
+                    <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                </g>
+                <g transform="matrix(1,0,0,1,-34.4519,19.4224)">
+                    <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                </g>
+            </g>
+        </g>
+        <g id="triple-drawer-group4" serif:id="triple-drawer-group" transform="matrix(1,0,0,1,-1.13687e-13,101.63)">
+            <g id="drawer-double12" serif:id="drawer-double" transform="matrix(1,0,0,1,436.537,0)">
+                <g id="backdrop12" serif:id="backdrop" transform="matrix(1.11481,0,0,0.976725,-7.81233,49.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g transform="matrix(1.11481,0,0,0.976725,-16.8123,40.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="fill:white;stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g id="vertical12" serif:id="vertical">
+                    <g id="vertical-div12" serif:id="vertical div" transform="matrix(7.67851e-17,0.42363,-1,2.06858e-17,486.275,124.297)">
+                        <path d="M60.419,220.812L387.444,220.812" style="fill:none;stroke:black;stroke-width:5.21px;stroke-linejoin:round;"/>
+                    </g>
+                    <g id="owner-label24" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-886.411,-261.259)">
+                        <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,170.592,19.4224)">
+                        <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                    </g>
+                </g>
+                <g id="owner-label25" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-1091.46,-261.259)">
+                    <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                </g>
+                <g transform="matrix(1,0,0,1,-34.4519,19.4224)">
+                    <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                </g>
+            </g>
+            <g id="drawer-double13" serif:id="drawer-double" transform="matrix(1,0,0,1,873.074,0)">
+                <g id="backdrop13" serif:id="backdrop" transform="matrix(1.11481,0,0,0.976725,-7.81233,49.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g transform="matrix(1.11481,0,0,0.976725,-16.8123,40.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="fill:white;stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g id="vertical13" serif:id="vertical">
+                    <g id="vertical-div13" serif:id="vertical div" transform="matrix(7.67851e-17,0.42363,-1,2.06858e-17,486.275,124.297)">
+                        <path d="M60.419,220.812L387.444,220.812" style="fill:none;stroke:black;stroke-width:5.21px;stroke-linejoin:round;"/>
+                    </g>
+                    <g id="owner-label26" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-886.411,-261.259)">
+                        <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,170.592,19.4224)">
+                        <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                    </g>
+                </g>
+                <g id="owner-label27" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-1091.46,-261.259)">
+                    <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                </g>
+                <g transform="matrix(1,0,0,1,-34.4519,19.4224)">
+                    <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                </g>
+            </g>
+            <g id="drawer-double14" serif:id="drawer-double">
+                <g id="backdrop14" serif:id="backdrop" transform="matrix(1.11481,0,0,0.976725,-7.81233,49.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g transform="matrix(1.11481,0,0,0.976725,-16.8123,40.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="fill:white;stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g id="vertical14" serif:id="vertical">
+                    <g id="vertical-div14" serif:id="vertical div" transform="matrix(7.67851e-17,0.42363,-1,2.06858e-17,486.275,124.297)">
+                        <path d="M60.419,220.812L387.444,220.812" style="fill:none;stroke:black;stroke-width:5.21px;stroke-linejoin:round;"/>
+                    </g>
+                    <g id="owner-label28" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-886.411,-261.259)">
+                        <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,170.592,19.4224)">
+                        <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                    </g>
+                </g>
+                <g id="owner-label29" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-1091.46,-261.259)">
+                    <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                </g>
+                <g transform="matrix(1,0,0,1,-34.4519,19.4224)">
+                    <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                </g>
+            </g>
+        </g>
+    </g>
+    <g id="compartment-group1" serif:id="compartment-group" transform="matrix(1,0,0,1,5.7554e-13,944.434)">
+        <g id="triple-drawer-group5" serif:id="triple-drawer-group" transform="matrix(1,0,0,1,0,-67.0831)">
+            <g id="drawer-double15" serif:id="drawer-double" transform="matrix(1,0,0,1,436.537,0)">
+                <g id="backdrop15" serif:id="backdrop" transform="matrix(1.11481,0,0,0.976725,-7.81233,49.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g transform="matrix(1.11481,0,0,0.976725,-16.8123,40.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="fill:white;stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g id="vertical15" serif:id="vertical">
+                    <g id="vertical-div15" serif:id="vertical div" transform="matrix(7.67851e-17,0.42363,-1,2.06858e-17,486.275,124.297)">
+                        <path d="M60.419,220.812L387.444,220.812" style="fill:none;stroke:black;stroke-width:5.21px;stroke-linejoin:round;"/>
+                    </g>
+                    <g id="owner-label30" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-886.411,-261.259)">
+                        <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,170.592,19.4224)">
+                        <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                    </g>
+                </g>
+                <g id="owner-label31" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-1091.46,-261.259)">
+                    <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                </g>
+                <g transform="matrix(1,0,0,1,-34.4519,19.4224)">
+                    <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                </g>
+            </g>
+            <g id="drawer-double16" serif:id="drawer-double" transform="matrix(1,0,0,1,873.074,0)">
+                <g id="backdrop16" serif:id="backdrop" transform="matrix(1.11481,0,0,0.976725,-7.81233,49.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g transform="matrix(1.11481,0,0,0.976725,-16.8123,40.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="fill:white;stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g id="vertical16" serif:id="vertical">
+                    <g id="vertical-div16" serif:id="vertical div" transform="matrix(7.67851e-17,0.42363,-1,2.06858e-17,486.275,124.297)">
+                        <path d="M60.419,220.812L387.444,220.812" style="fill:none;stroke:black;stroke-width:5.21px;stroke-linejoin:round;"/>
+                    </g>
+                    <g id="owner-label32" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-886.411,-261.259)">
+                        <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,170.592,19.4224)">
+                        <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                    </g>
+                </g>
+                <g id="owner-label33" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-1091.46,-261.259)">
+                    <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                </g>
+                <g transform="matrix(1,0,0,1,-34.4519,19.4224)">
+                    <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                </g>
+            </g>
+            <g id="drawer-double17" serif:id="drawer-double">
+                <g id="backdrop17" serif:id="backdrop" transform="matrix(1.11481,0,0,0.976725,-7.81233,49.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g transform="matrix(1.11481,0,0,0.976725,-16.8123,40.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="fill:white;stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g id="vertical17" serif:id="vertical">
+                    <g id="vertical-div17" serif:id="vertical div" transform="matrix(7.67851e-17,0.42363,-1,2.06858e-17,486.275,124.297)">
+                        <path d="M60.419,220.812L387.444,220.812" style="fill:none;stroke:black;stroke-width:5.21px;stroke-linejoin:round;"/>
+                    </g>
+                    <g id="owner-label34" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-886.411,-261.259)">
+                        <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,170.592,19.4224)">
+                        <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                    </g>
+                </g>
+                <g id="owner-label35" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-1091.46,-261.259)">
+                    <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                </g>
+                <g transform="matrix(1,0,0,1,-34.4519,19.4224)">
+                    <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                </g>
+            </g>
+        </g>
+        <g id="triple-drawer-group6" serif:id="triple-drawer-group" transform="matrix(1,0,0,1,2.27374e-13,270.599)">
+            <g id="drawer-double18" serif:id="drawer-double" transform="matrix(1,0,0,1,436.537,0)">
+                <g id="backdrop18" serif:id="backdrop" transform="matrix(1.11481,0,0,0.976725,-7.81233,49.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g transform="matrix(1.11481,0,0,0.976725,-16.8123,40.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="fill:white;stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g id="vertical18" serif:id="vertical">
+                    <g id="vertical-div18" serif:id="vertical div" transform="matrix(7.67851e-17,0.42363,-1,2.06858e-17,486.275,124.297)">
+                        <path d="M60.419,220.812L387.444,220.812" style="fill:none;stroke:black;stroke-width:5.21px;stroke-linejoin:round;"/>
+                    </g>
+                    <g id="owner-label36" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-886.411,-261.259)">
+                        <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,170.592,19.4224)">
+                        <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                    </g>
+                </g>
+                <g id="owner-label37" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-1091.46,-261.259)">
+                    <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                </g>
+                <g transform="matrix(1,0,0,1,-34.4519,19.4224)">
+                    <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                </g>
+            </g>
+            <g id="drawer-double19" serif:id="drawer-double" transform="matrix(1,0,0,1,873.074,0)">
+                <g id="backdrop19" serif:id="backdrop" transform="matrix(1.11481,0,0,0.976725,-7.81233,49.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g transform="matrix(1.11481,0,0,0.976725,-16.8123,40.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="fill:white;stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g id="vertical19" serif:id="vertical">
+                    <g id="vertical-div19" serif:id="vertical div" transform="matrix(7.67851e-17,0.42363,-1,2.06858e-17,486.275,124.297)">
+                        <path d="M60.419,220.812L387.444,220.812" style="fill:none;stroke:black;stroke-width:5.21px;stroke-linejoin:round;"/>
+                    </g>
+                    <g id="owner-label38" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-886.411,-261.259)">
+                        <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,170.592,19.4224)">
+                        <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                    </g>
+                </g>
+                <g id="owner-label39" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-1091.46,-261.259)">
+                    <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                </g>
+                <g transform="matrix(1,0,0,1,-34.4519,19.4224)">
+                    <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                </g>
+            </g>
+            <g id="drawer-double20" serif:id="drawer-double">
+                <g id="backdrop20" serif:id="backdrop" transform="matrix(1.11481,0,0,0.976725,-7.81233,49.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g transform="matrix(1.11481,0,0,0.976725,-16.8123,40.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="fill:white;stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g id="vertical20" serif:id="vertical">
+                    <g id="vertical-div20" serif:id="vertical div" transform="matrix(7.67851e-17,0.42363,-1,2.06858e-17,486.275,124.297)">
+                        <path d="M60.419,220.812L387.444,220.812" style="fill:none;stroke:black;stroke-width:5.21px;stroke-linejoin:round;"/>
+                    </g>
+                    <g id="owner-label40" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-886.411,-261.259)">
+                        <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,170.592,19.4224)">
+                        <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                    </g>
+                </g>
+                <g id="owner-label41" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-1091.46,-261.259)">
+                    <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                </g>
+                <g transform="matrix(1,0,0,1,-34.4519,19.4224)">
+                    <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                </g>
+            </g>
+        </g>
+        <g id="triple-drawer-group7" serif:id="triple-drawer-group" transform="matrix(1,0,0,1,-3.41061e-13,439.003)">
+            <g id="drawer-double21" serif:id="drawer-double" transform="matrix(1,0,0,1,436.537,0)">
+                <g id="backdrop21" serif:id="backdrop" transform="matrix(1.11481,0,0,0.976725,-7.81233,49.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g transform="matrix(1.11481,0,0,0.976725,-16.8123,40.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="fill:white;stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g id="vertical21" serif:id="vertical">
+                    <g id="vertical-div21" serif:id="vertical div" transform="matrix(7.67851e-17,0.42363,-1,2.06858e-17,486.275,124.297)">
+                        <path d="M60.419,220.812L387.444,220.812" style="fill:none;stroke:black;stroke-width:5.21px;stroke-linejoin:round;"/>
+                    </g>
+                    <g id="owner-label42" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-886.411,-261.259)">
+                        <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,170.592,19.4224)">
+                        <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                    </g>
+                </g>
+                <g id="owner-label43" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-1091.46,-261.259)">
+                    <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                </g>
+                <g transform="matrix(1,0,0,1,-34.4519,19.4224)">
+                    <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                </g>
+            </g>
+            <g id="drawer-double22" serif:id="drawer-double" transform="matrix(1,0,0,1,873.074,0)">
+                <g id="backdrop22" serif:id="backdrop" transform="matrix(1.11481,0,0,0.976725,-7.81233,49.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g transform="matrix(1.11481,0,0,0.976725,-16.8123,40.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="fill:white;stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g id="vertical22" serif:id="vertical">
+                    <g id="vertical-div22" serif:id="vertical div" transform="matrix(7.67851e-17,0.42363,-1,2.06858e-17,486.275,124.297)">
+                        <path d="M60.419,220.812L387.444,220.812" style="fill:none;stroke:black;stroke-width:5.21px;stroke-linejoin:round;"/>
+                    </g>
+                    <g id="owner-label44" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-886.411,-261.259)">
+                        <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,170.592,19.4224)">
+                        <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                    </g>
+                </g>
+                <g id="owner-label45" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-1091.46,-261.259)">
+                    <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                </g>
+                <g transform="matrix(1,0,0,1,-34.4519,19.4224)">
+                    <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                </g>
+            </g>
+            <g id="drawer-double23" serif:id="drawer-double">
+                <g id="backdrop23" serif:id="backdrop" transform="matrix(1.11481,0,0,0.976725,-7.81233,49.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g transform="matrix(1.11481,0,0,0.976725,-16.8123,40.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="fill:white;stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g id="vertical23" serif:id="vertical">
+                    <g id="vertical-div23" serif:id="vertical div" transform="matrix(7.67851e-17,0.42363,-1,2.06858e-17,486.275,124.297)">
+                        <path d="M60.419,220.812L387.444,220.812" style="fill:none;stroke:black;stroke-width:5.21px;stroke-linejoin:round;"/>
+                    </g>
+                    <g id="owner-label46" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-886.411,-261.259)">
+                        <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,170.592,19.4224)">
+                        <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                    </g>
+                </g>
+                <g id="owner-label47" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-1091.46,-261.259)">
+                    <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                </g>
+                <g transform="matrix(1,0,0,1,-34.4519,19.4224)">
+                    <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                </g>
+            </g>
+        </g>
+        <g id="triple-drawer-group8" serif:id="triple-drawer-group" transform="matrix(1,0,0,1,-3.41061e-13,603.636)">
+            <g id="drawer-double24" serif:id="drawer-double" transform="matrix(1,0,0,1,436.537,0)">
+                <g id="backdrop24" serif:id="backdrop" transform="matrix(1.11481,0,0,0.976725,-7.81233,49.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g transform="matrix(1.11481,0,0,0.976725,-16.8123,40.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="fill:white;stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g id="vertical24" serif:id="vertical">
+                    <g id="vertical-div24" serif:id="vertical div" transform="matrix(7.67851e-17,0.42363,-1,2.06858e-17,486.275,124.297)">
+                        <path d="M60.419,220.812L387.444,220.812" style="fill:none;stroke:black;stroke-width:5.21px;stroke-linejoin:round;"/>
+                    </g>
+                    <g id="owner-label48" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-886.411,-261.259)">
+                        <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,170.592,19.4224)">
+                        <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                    </g>
+                </g>
+                <g id="owner-label49" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-1091.46,-261.259)">
+                    <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                </g>
+                <g transform="matrix(1,0,0,1,-34.4519,19.4224)">
+                    <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                </g>
+            </g>
+            <g id="drawer-double25" serif:id="drawer-double" transform="matrix(1,0,0,1,873.074,0)">
+                <g id="backdrop25" serif:id="backdrop" transform="matrix(1.11481,0,0,0.976725,-7.81233,49.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g transform="matrix(1.11481,0,0,0.976725,-16.8123,40.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="fill:white;stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g id="vertical25" serif:id="vertical">
+                    <g id="vertical-div25" serif:id="vertical div" transform="matrix(7.67851e-17,0.42363,-1,2.06858e-17,486.275,124.297)">
+                        <path d="M60.419,220.812L387.444,220.812" style="fill:none;stroke:black;stroke-width:5.21px;stroke-linejoin:round;"/>
+                    </g>
+                    <g id="owner-label50" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-886.411,-261.259)">
+                        <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,170.592,19.4224)">
+                        <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                    </g>
+                </g>
+                <g id="owner-label51" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-1091.46,-261.259)">
+                    <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                </g>
+                <g transform="matrix(1,0,0,1,-34.4519,19.4224)">
+                    <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                </g>
+            </g>
+            <g id="drawer-double26" serif:id="drawer-double">
+                <g id="backdrop26" serif:id="backdrop" transform="matrix(1.11481,0,0,0.976725,-7.81233,49.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g transform="matrix(1.11481,0,0,0.976725,-16.8123,40.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="fill:white;stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g id="vertical26" serif:id="vertical">
+                    <g id="vertical-div26" serif:id="vertical div" transform="matrix(7.67851e-17,0.42363,-1,2.06858e-17,486.275,124.297)">
+                        <path d="M60.419,220.812L387.444,220.812" style="fill:none;stroke:black;stroke-width:5.21px;stroke-linejoin:round;"/>
+                    </g>
+                    <g id="owner-label52" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-886.411,-261.259)">
+                        <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,170.592,19.4224)">
+                        <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                    </g>
+                </g>
+                <g id="owner-label53" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-1091.46,-261.259)">
+                    <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                </g>
+                <g transform="matrix(1,0,0,1,-34.4519,19.4224)">
+                    <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                </g>
+            </g>
+        </g>
+        <g id="triple-drawer-group9" serif:id="triple-drawer-group" transform="matrix(1,0,0,1,-1.13687e-13,101.63)">
+            <g id="drawer-double27" serif:id="drawer-double" transform="matrix(1,0,0,1,436.537,0)">
+                <g id="backdrop27" serif:id="backdrop" transform="matrix(1.11481,0,0,0.976725,-7.81233,49.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g transform="matrix(1.11481,0,0,0.976725,-16.8123,40.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="fill:white;stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g id="vertical27" serif:id="vertical">
+                    <g id="vertical-div27" serif:id="vertical div" transform="matrix(7.67851e-17,0.42363,-1,2.06858e-17,486.275,124.297)">
+                        <path d="M60.419,220.812L387.444,220.812" style="fill:none;stroke:black;stroke-width:5.21px;stroke-linejoin:round;"/>
+                    </g>
+                    <g id="owner-label54" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-886.411,-261.259)">
+                        <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,170.592,19.4224)">
+                        <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                    </g>
+                </g>
+                <g id="owner-label55" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-1091.46,-261.259)">
+                    <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                </g>
+                <g transform="matrix(1,0,0,1,-34.4519,19.4224)">
+                    <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                </g>
+            </g>
+            <g id="drawer-double28" serif:id="drawer-double" transform="matrix(1,0,0,1,873.074,0)">
+                <g id="backdrop28" serif:id="backdrop" transform="matrix(1.11481,0,0,0.976725,-7.81233,49.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g transform="matrix(1.11481,0,0,0.976725,-16.8123,40.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="fill:white;stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g id="vertical28" serif:id="vertical">
+                    <g id="vertical-div28" serif:id="vertical div" transform="matrix(7.67851e-17,0.42363,-1,2.06858e-17,486.275,124.297)">
+                        <path d="M60.419,220.812L387.444,220.812" style="fill:none;stroke:black;stroke-width:5.21px;stroke-linejoin:round;"/>
+                    </g>
+                    <g id="owner-label56" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-886.411,-261.259)">
+                        <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,170.592,19.4224)">
+                        <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                    </g>
+                </g>
+                <g id="owner-label57" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-1091.46,-261.259)">
+                    <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                </g>
+                <g transform="matrix(1,0,0,1,-34.4519,19.4224)">
+                    <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                </g>
+            </g>
+            <g id="drawer-double29" serif:id="drawer-double">
+                <g id="backdrop29" serif:id="backdrop" transform="matrix(1.11481,0,0,0.976725,-7.81233,49.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g transform="matrix(1.11481,0,0,0.976725,-16.8123,40.7126)">
+                    <rect x="69.277" y="111.781" width="367.854" height="141.839" style="fill:white;stroke:black;stroke-width:3.82px;"/>
+                </g>
+                <g id="vertical29" serif:id="vertical">
+                    <g id="vertical-div29" serif:id="vertical div" transform="matrix(7.67851e-17,0.42363,-1,2.06858e-17,486.275,124.297)">
+                        <path d="M60.419,220.812L387.444,220.812" style="fill:none;stroke:black;stroke-width:5.21px;stroke-linejoin:round;"/>
+                    </g>
+                    <g id="owner-label58" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-886.411,-261.259)">
+                        <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,170.592,19.4224)">
+                        <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                    </g>
+                </g>
+                <g id="owner-label59" serif:id="owner-label" transform="matrix(1.21746,0,0,0.645759,-1091.46,-261.259)">
+                    <rect x="946.132" y="636.555" width="84.943" height="47.323"/>
+                </g>
+                <g transform="matrix(1,0,0,1,-34.4519,19.4224)">
+                    <text x="101.867px" y="150.934px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:18.917px;fill:white;">Esengül</text>
+                </g>
+            </g>
+        </g>
+    </g>
+    <g transform="matrix(0.914432,0,0,1,59.7193,-33.2538)">
+        <path d="M0,90.254L1404,90.254" style="fill:none;stroke:black;stroke-width:4.17px;stroke-linejoin:round;"/>
+    </g>
+    <g transform="matrix(0.746428,0,0,0.815774,54.1091,-5.32143)">
+        <path d="M154.821,18.396L29.856,17.767L29.856,59.818L183.342,59.818L155.096,40L154.821,18.396Z" style="fill:rgb(235,235,235);stroke:black;stroke-width:5.12px;stroke-linejoin:round;"/>
+    </g>
+    <g transform="matrix(1,0,0,0.7125,13.6988,0)">
+        <path d="M1077.58,80L1077.58,0" style="fill:none;stroke:black;stroke-width:4.61px;stroke-linejoin:round;"/>
+    </g>
+    <g transform="matrix(1,0,0,0.7125,265.998,0.662114)">
+        <path d="M1077.58,80L1077.58,0" style="fill:none;stroke:black;stroke-width:4.61px;stroke-linejoin:round;"/>
+    </g>
+    <g transform="matrix(1,0,0,0.7125,-369.583,0)">
+        <path d="M1077.58,80L1077.58,0" style="fill:none;stroke:black;stroke-width:4.61px;stroke-linejoin:round;"/>
+    </g>
+    <g transform="matrix(1,0,0,0.7125,-771.583,0)">
+        <path d="M1077.58,80L1077.58,0" style="fill:none;stroke:black;stroke-width:4.61px;stroke-linejoin:round;"/>
+    </g>
+    <g transform="matrix(1,0,0,0.7125,-1017.58,0)">
+        <path d="M1077.58,80L1077.58,0" style="fill:none;stroke:black;stroke-width:4.61px;stroke-linejoin:round;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,-433.809,85.1728)">
+        <text x="494.228px" y="28.554px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:22.069px;fill:rgb(150,150,150);">Top Compartment</text>
+    </g>
+    <g transform="matrix(1,0,0,1,-433.809,981.777)">
+        <text x="494.228px" y="28.554px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:22.069px;fill:rgb(150,150,150);">Bottom Compartment</text>
+    </g>
+    <g transform="matrix(1,0,0,1,609.699,-5.7016)">
+        <text x="494.228px" y="21.555px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:12.611px;fill:rgb(150,150,150);">Updated</text>
+    </g>
+    <g id="placeholder">
+        <g transform="matrix(1,0,0,1,-169.795,3.06969)">
+            <text x="494.228px" y="30.888px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:25.222px;fill:rgb(95,95,95);">freezer id name</text>
+        </g>
+        <g transform="matrix(1,0,0,1,228.538,10.4729)">
+            <text x="494.228px" y="23.888px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:15.764px;fill:rgb(95,95,95);">software version? backend?</text>
+        </g>
+        <g transform="matrix(1,0,0,1,-409.909,2.6249)">
+            <text x="494.228px" y="28.554px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:22.069px;fill:rgb(95,95,95);">indicator</text>
+        </g>
+        <g transform="matrix(1,0,0,1,609.699,14.1011)">
+            <text x="494.228px" y="30.888px" style="font-family:'IBMPlexMono-Bold', 'IBM Plex Mono', monospace;font-weight:700;font-size:25.222px;">jun 12 12:45</text>
+        </g>
+    </g>
+</svg>

@@ -2,19 +2,16 @@
 
 You will probably want to design assets in a proper graphics editing program like Inkscape for elements that are not super dynamic. Converting these into the right format for the display is important, as we have limited storage and memory.
 
-### Export format
+### About the images
 
-You can export the images in any of the common rasterised formats (e.g. PNG, JPG). This intermediate format will be useful for previewing on your system and can be committed to git if needed. Ideally you export as a grayscale image already, but I don't think this is needed.
+The assets are to be designed in Inkscape. The document should be set to 1404x1872px, and exported rasterised images will have the correct pixel aspect ratio if they are exported with a DPI of 96.
 
-These intermediate images are then to be converted to 4-bit grayscale bitmap (`.bmp`) images. You can use [IrfanView](https://www.irfanview.com/)[^1][^2] for this:
+> [!warning] Warning: the images must have dimensions that are divisible by 4. 
+> this restriction needs to be cleaned up for ergonomics. You can set dimensions in inkscape in pixels to help with this.
 
-```shell
-"C:\path\to\i_view64.exe" c:\path\to\in\*.png /bpp=4 /convert=c:\path\to\out\*.bmp
-```
+Note: to be able to export different regions from a single document, you need to set the `id` of objects in inkscape. This must be done with the XML editor. With the right inkscape cli argument you can then select on specific groups to export based on id.
 
-A simple `.bat` script is available for this (Windows only). These `.bmp` files can be copied to the microcontroller and displayed with the `displayio` CircuitPython library. Have a look at how this is done in the project code for examples.
+### Exporting the images
 
-If you have any alternative for Linux[^1] that works, let me know! 
-
-[^1]: I tried getting the same to work with ImageMagick, but it doesn't really seem to produce the correct output. They are 4-bit images but never quite the right LUT and for some reason it has strange artifacts. 
-[^2]: Surprisingly, MS Paint works too for manual cases. Save as a 16-color BMP.
+The most convenient way to export the images is with the 
+`convert-assets-to-bmp.sh` script. It will export rasterised images based on the specified inkscape files and layers therein, and then convert them to the right 4-bit grayscale bitmap (`.bmp`) images. They are also flipped as the display draws iamges in a flipped way and I don't really want to figure out how to fix that at a lower level.
