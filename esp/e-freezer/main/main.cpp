@@ -9,13 +9,12 @@
 static const char* TAG = "main";
 
 extern "C" void app_main(void) {
-   
     IT8951 display;
 
     // Initialize the IT8951 controller. The value is the voltage that is
     // shown on the cable. It's important this value is correct!
 
-    display.setup(-2.06f);
+    display.setup(-1.15f);
 
     // Allocate a screen sized buffer.
 
