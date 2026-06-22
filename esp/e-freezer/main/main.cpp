@@ -6,96 +6,54 @@
 #include "esp_log.h"
 #include "it8951.h"
 
+#include "lvgl.h"
+#include "device.h"
+
+
 static const char* TAG = "main";
 
-extern "C" void app_main(void) {
-    IT8951 display;
 
-    // Initialize the IT8951 controller. The value is the voltage that is
-    // shown on the cable. It's important this value is correct!
-
-    display.setup(-1.15f);
-
-    // Allocate a screen sized buffer.
-
-    const size_t scan_line = (display.get_width() + 7) / 8;
-    const size_t display_buffer_size = scan_line * display.get_height();
-    const auto display_buffer = (uint8_t*)malloc(display_buffer_size);
-    if (!display_buffer) {
-        ESP_LOGE(TAG, "Failed to allocate screen buffer");
-        esp_restart();
-    }
-
+// stacksize for main is limiting on microcontroller
+// so we run the main lv_timer_handler() loop in this separate task
+void lvgl_task(void* pvParameters) {
+    Device* device = (Device*)pvParameters;
+    
+    ESP_LOGI(TAG, "LVGL Task Started");
     while (true) {
-        // Clear the screen of any residual image. This is done every few updates
-        // and removes the after image on the screen.
-
-        display.clear_screen();
-
-        // Show bars moving across the screen.
-
-        const int bars = 16;
-
-        for (int i = 0; i < bars; i++) {
-            // Draw a bar in the screen buffer.
-
-            memset(display_buffer, 0xff, display_buffer_size);
-
-            const auto bar_size = scan_line / bars;
-            const auto offset = bar_size * i;
-
-            for (int y = 0; y < display.get_height(); y++) {
-                memset(&display_buffer[y * scan_line + offset], 0, bar_size);
-            }
-
-            //
-            // Send the screen buffer to the controller.
-            //
-            // Sending an image to the controller works as follows:
-            //
-            // * Start transferring the image to the controller using load_image_start().
-            //   This lets the controller know of the image dimensions, rotation and
-            //   pixel format.
-            // * Send the image in chunks. While one buffer is being filled, a
-            //   second buffer is being transferred using SPI. If you take a reference to
-            //   the SPI transfer buffer, call get_buffer() after calling
-            //   load_image_flush_buffer() to get the current buffer.
-            // * Once the image is fully transferred, call load_image_end() to
-            //   signal that the image has been transferred.
-            //
-            // Once the image has been transferred to the controller, it can be displayed
-            // using display_area().
-            //
-            // Note that some time may pass between load_image_flush_buffer() calls. You
-            // can take advantage of this to render an image in chunks, e.g. when using LVGL.
-            //
-
-            IT8951Area area = {
-                .x = 0,
-                .y = 0,
-                .w = display.get_width(),
-                .h = display.get_height(),
-            };
-
-            display.load_image_start(area, display.get_memory_address(), IT8951_ROTATE_0, IT8951_PIXEL_FORMAT_1BPP);
-
-            const size_t buffer_len = display.get_buffer_len();
-
-            for (size_t offset = 0; offset < display_buffer_size; offset += buffer_len) {
-                const auto copy = std::min(buffer_len, display_buffer_size - offset);
-
-                memcpy(display.get_buffer(), display_buffer + offset, copy);
-
-                display.load_image_flush_buffer(copy);
-            }
-
-            display.load_image_end();
-
-            display.display_area(area, display.get_memory_address(), IT8951_PIXEL_FORMAT_1BPP, IT8951_DISPLAY_MODE_A2);
-
-            // Wait a bit before showing the next bar.
-
-            vTaskDelay(pdMS_TO_TICKS(200));
-        }
+        device->process(); // This runs your 10ms delay and timer handler safely
     }
+}
+
+
+extern "C" void app_main(void) {
+    static Device device;  // initialise the display (& IT8951 driver)
+    device.begin();  // TODO: not needed? run the initalisation command to the display
+
+    lv_obj_t * btn = lv_btn_create(lv_scr_act());     /*Add a button the current screen*/
+    lv_obj_set_pos(btn, 10, 10);                            /*Set its position*/
+    lv_obj_set_size(btn, 120, 50);                          /*Set its size*/
+
+    lv_obj_t * label = lv_label_create(btn);          /*Add a label to the button*/
+    lv_label_set_text(label, "Button");                     /*Set the labels text*/
+    lv_obj_center(label);
+
+
+    lv_obj_t * btn2 = lv_btn_create(lv_scr_act());     /*Add a button the current screen*/
+    lv_obj_set_pos(btn2, 30, 400);                            /*Set its position*/
+    lv_obj_set_size(btn2, 300, 500);                          /*Set its size*/
+
+    lv_obj_t * label2 = lv_label_create(btn2);          /*Add a label to the button*/
+    lv_label_set_text(label2, "Yeet");                     /*Set the labels text*/
+    lv_obj_center(label2);
+    lv_obj_set_style_text_font(label2, &lv_font_montserrat_48, 0);
+
+    xTaskCreatePinnedToCore(
+        lvgl_task,      // Task function
+        "lvgl_task",
+        12 * 1024,      // Stack size in bytes 
+        &device,        
+        5,              // Task priority
+        NULL,           
+        1               // Core ID (Core 1 handles display, Core 0 handles radio/system)
+    );
 }

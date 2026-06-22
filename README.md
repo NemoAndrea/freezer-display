@@ -1,5 +1,11 @@
 > [!IMPORTANT]
 > This project is a work-in-progress. I would not recommend trying to replicate the designs or consider the code as exemplary at this point. If you cannot wait, get in touch so we can collaborate.
+  
+# Nix OS related
+
+Use https://github.com/mirrexagon/nixpkgs-esp-dev for a shell that will enable development.
+
+
 
 # 🧊 Wetlab Freezer display 	
 
@@ -33,18 +39,25 @@ If other people turn out to find this kind of thing useful, there are many thing
 
 ### Development workflow 🏗
 
-When you connect the UnexpectedMaker board via USB it will be mounted as a circuitpython drive. You can open this folder in your IDE of choice and make edits there. When changes to the drive filesystem are detected (e.g. you save your edited code file) it will automatically reset the board and run the new code.
+When you first connect the UnexpectedMaker board via USB it will be mounted as a circuitpython drive. We want to use the native development tools instead, and must thus wipe the circuitpython installation. 
 
-In order to get some quick debugging options, you can listen on the serial port for output from the device over the USB connection that you already have. On linux, use the `tio` package.
+We need to instal the python package `esptool`. I suggest you try out `uv`, but `pip` is of course perfectly adequate for the job.
+
+Wipe circuitpython with esptool and the command
 
 ```bash
-# find the name/mount point of the device
-sudo dmesg | grep tty
-# once identified (should be the same unless you change your usb devices), connect to the circuitpython output with
-sudo tio /dev/ttyACM0
+# find port with e.g. tio package
+# you'll find something like /dev/ttyAMC0 (on linux)
+esptool.py --port /dev/ttyACM0 erase_flash
 ```
 
-We cannot (or rather: should not) run git directly on the microcontroller drive. To commit changes to git, we need to copy the code from the microcontroller drive to wherever you cloned this repository to on your system. A simply utility for this is present in the [utils](utils/copy-code-from-board.sh) directory. Modify this to match your system configuration.
+To build, flash and monitor the ESP32-S3, you will also need to install the espressif build tools. Once you have done that you can navigate into the [/esp/](esp/) directory and run the following to build, flash and compile
+
+
+```bash
+idf.py --port /dev/ttyACM0 flash monitor
+# note that you can exit monitor with: ctrl+]
+```
 
 ### Initial setup 📈
 
