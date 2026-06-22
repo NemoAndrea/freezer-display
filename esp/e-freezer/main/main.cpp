@@ -9,6 +9,7 @@
 #include "lvgl.h"
 #include "device.h"
 
+LV_IMAGE_DECLARE(test_image);
 
 static const char* TAG = "main";
 
@@ -40,12 +41,26 @@ extern "C" void app_main(void) {
 
     lv_obj_t * btn2 = lv_btn_create(lv_scr_act());     /*Add a button the current screen*/
     lv_obj_set_pos(btn2, 30, 400);                            /*Set its position*/
-    lv_obj_set_size(btn2, 300, 500);                          /*Set its size*/
+    lv_obj_set_size(btn2, 800, 500);                          /*Set its size*/
 
     lv_obj_t * label2 = lv_label_create(btn2);          /*Add a label to the button*/
     lv_label_set_text(label2, "Yeet");                     /*Set the labels text*/
     lv_obj_center(label2);
     lv_obj_set_style_text_font(label2, &lv_font_montserrat_48, 0);
+
+    lv_obj_t * btn3 = lv_btn_create(lv_scr_act());     /*Add a button the current screen*/
+    lv_obj_set_pos(btn3, 150, 1600);                            /*Set its position*/
+    lv_obj_set_size(btn3, 400, 400);                          /*Set its size*/
+
+    lv_obj_t * label3 = lv_label_create(btn3);          /*Add a label to the button*/
+    lv_label_set_text(label3, "ANTH");                     /*Set the labels text*/
+    lv_obj_center(label3);
+    lv_obj_set_style_text_font(label3, &lv_font_montserrat_48, 0);
+
+    // image
+    lv_obj_t * img_obj = lv_image_create(lv_screen_active());
+    lv_image_set_src(img_obj, &test_image);
+
 
     xTaskCreatePinnedToCore(
         lvgl_task,      // Task function

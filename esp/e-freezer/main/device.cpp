@@ -42,13 +42,15 @@ void Device::flush_cb(lv_display_t* disp_drv, const lv_area_t* area, uint8_t* co
     assert(LV_COLOR_DEPTH == 16);
 
     ESP_LOGD(TAG, "Updating display %dx%d %dx%d", area->x1, area->y1, area->x2, area->y2);
+    ESP_LOGI(TAG, "flush_cb_time");
 
     set_on(true);
 
     const uint16_t display_width = (area->x2 - area->x1) + 1;
-    const uint16_t display_height = lv_display_get_horizontal_resolution(disp_drv);;
+    const uint16_t display_height = lv_display_get_horizontal_resolution(disp_drv);
 
     if (!_flushing) {
+        ESP_LOGI(TAG, "!_flushing");
         _flushing = true;
         _flush_start = esp_get_millis();
 
@@ -62,7 +64,7 @@ void Device::flush_cb(lv_display_t* disp_drv, const lv_area_t* area, uint8_t* co
         _display.load_image_start(area, _display.get_memory_address(), IT8951_ROTATE_90, IT8951_PIXEL_FORMAT_4BPP);
     }
 
-    const auto width = display_width;
+    const auto width = (area->x2 - area->x1) + 1;
     const auto height = (area->y2 - area->y1) + 1;
     const auto buffer_len = _display.get_buffer_len();
 
@@ -70,21 +72,6 @@ void Device::flush_cb(lv_display_t* disp_drv, const lv_area_t* area, uint8_t* co
     size_t buffer_offset = 0;
 
     lv_color_t* colors = (lv_color_t*)color_p;
-
-    // for (lv_coord_t y = 0; y < height; y++) {
-    //     for (lv_coord_t x = width - 2; x >= 0; x -= 2) {
-    //         const auto b1 = colors[y * width + x].ch.red >> 1;
-    //         const auto b2 = colors[y * width + x + 1].ch.red >> 1;
-
-    //         buffer[buffer_offset++] = b1 | b2 << 4;
-
-    //         if (buffer_offset >= buffer_len) {
-    //             _display.load_image_flush_buffer(buffer_offset);
-    //             buffer = _display.get_buffer();
-    //             buffer_offset = 0;
-    //         }
-    //     }
-    // }
 
     for (int32_t y = 0; y < height; y++) {
         for (int32_t x = width - 2; x >= 0; x -= 2) {
@@ -110,6 +97,7 @@ void Device::flush_cb(lv_display_t* disp_drv, const lv_area_t* area, uint8_t* co
 
     if (buffer_offset > 0) {
         _display.load_image_flush_buffer(buffer_offset);
+        ESP_LOGD(TAG, "squeezing out the remainder of bytes");
     }
 
     auto is_last = lv_disp_flush_is_last(disp_drv);
@@ -160,22 +148,29 @@ bool Device::begin() {
     ESP_ERROR_CHECK(esp_timer_create(&lvgl_tick_timer_args, &lvgl_tick_timer));
     ESP_ERROR_CHECK(esp_timer_start_periodic(lvgl_tick_timer, ESP_TIMER_MS(LVGL_TICK_PERIOD_MS)));
 
-    const int draw_buffer_lines = 80;
+    ESP_LOGI(TAG, "Turning screen off %d", _display.get_height());
+    const int draw_buffer_lines = _display.get_height();  // we have enough memmory, just throw the whole display in memory
     const size_t draw_buffer_pixels = _display.get_width() * draw_buffer_lines;
     const size_t draw_buffer_size = sizeof(lv_color_t) * draw_buffer_pixels;
 
-    ESP_LOGI(TAG, "Allocating %dKb for draw buffer", (draw_buffer_size) / 1024);
+    ESP_LOGI(TAG, "Allocating %dKb for draw buffer in PSRAM", (draw_buffer_size) / 1024);
 
-    auto draw_buffer = (uint8_t*)heap_caps_malloc(draw_buffer_size, MALLOC_CAP_INTERNAL);
+    // Request memory from SPIRAM (PSRAM) with strict 64-byte boundary alignment
+    auto draw_buffer = (uint8_t*)heap_caps_aligned_alloc(64, draw_buffer_size, MALLOC_CAP_SPIRAM);
     if (!draw_buffer) {
-        ESP_LOGE(TAG, "Failed to allocate draw buffer");
+        ESP_LOGE(TAG, "Failed to allocate draw buffer in PSRAM");
         esp_restart();
+    }
+    if (draw_buffer != nullptr) {
+        memset(draw_buffer, 0x7D, draw_buffer_size);
     }
 
     // Instantiate a display instance
     lv_display_t* display = lv_display_create(_display.get_width(), _display.get_height());
     if (!display) {
         ESP_LOGE(TAG, "Failed to create LVGL display handle");
+        // Clean up allocated PSRAM before crashing
+        heap_caps_free(draw_buffer); 
         esp_restart();
     }
 
@@ -184,6 +179,7 @@ bool Device::begin() {
     
     lv_display_set_user_data(display, this);
     
+    // TODO check this pointlessly verbose bit of code?
     lv_display_set_flush_cb(display, [](lv_display_t* disp, const lv_area_t* area, uint8_t* px_map) {
         auto* dev = (Device*)lv_display_get_user_data(disp);
         if (dev) {
@@ -191,7 +187,11 @@ bool Device::begin() {
         }
     });
 
-    lv_display_set_rotation(display, LV_DISPLAY_ROTATION_270);
+    // 3. Set the DPI (Dots Per Inch)
+    lv_display_set_dpi(display, LV_DPI_DEF);
+
+    // 4. Set the Rotation to 90 degrees
+    lv_display_set_rotation(display, LV_DISPLAY_ROTATION_90);
 
     ESP_LOGI(TAG, "Device initialization complete");
 
