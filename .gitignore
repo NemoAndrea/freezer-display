@@ -44,3 +44,5 @@ fp-info-cache
 
 # Other ignores
 *.tmp.*
+*.nix
+nixpkgs-esp-dev/

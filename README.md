@@ -1,11 +1,6 @@
 > [!IMPORTANT]
 > This project is a work-in-progress. I would not recommend trying to replicate the designs or consider the code as exemplary at this point. If you cannot wait, get in touch so we can collaborate.
   
-# Nix OS related
-
-Use https://github.com/mirrexagon/nixpkgs-esp-dev for a shell that will enable development.
-
-
 
 # 🧊 Wetlab Freezer display 	
 
@@ -55,14 +50,10 @@ To build, flash and monitor the ESP32-S3, you will also need to install the espr
 
 
 ```bash
-idf.py --port /dev/ttyACM0 flash monitor
+idf.py --port <port> flash monitor
 # note that you can exit monitor with: ctrl+]
 ```
 
-### Initial setup 📈
+# Nix related
 
-The Unexpected Maker Pro S3 should mount as a USB drive.  To get it working:
-
-1. Copy the python files in the root of this directory into the root of the Pro S3 
-2. Copy the `IT8951` folder (containing python files) onto the Pro S3.
-3. On the Pro S3, Make a folder called `assets` and copy all the `.bmp` files from [assets](assets) into it.
+Use https://github.com/mirrexagon/nixpkgs-esp-dev for a shell that will enable development.
