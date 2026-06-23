@@ -106,7 +106,7 @@ public:
                 pdFALSE, pdFALSE, portMAX_DELAY);
 
         if (bits & WIFI_CONNECTED_BIT) {
-            ESP_LOGI(TAG, "Connected successfully!");
+            ESP_LOGI(TAG, "Connected successfully");
             return true;
         } else {
             ESP_LOGE(TAG, "Failed to connect after max retries.");
@@ -143,7 +143,7 @@ public:
         esp_http_client_config_t config = {};
         config.url = "https://httpbin.org/get"; // Or any fast endpoint
         config.method = HTTP_METHOD_HEAD;       // HEAD only downloads headers, keeping it fast
-        config.timeout_ms = 2000;                // Don't hang for more than 2 seconds
+        config.timeout_ms = 5000;                // Don't hang for more than 5 seconds
         config.crt_bundle_attach = esp_crt_bundle_attach;
 
         esp_http_client_handle_t client = esp_http_client_init(&config);

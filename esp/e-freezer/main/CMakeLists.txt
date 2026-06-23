@@ -1,6 +1,7 @@
 idf_component_register(SRCS 
                         "main.cpp"
                         "device.cpp"
+                        "freezer_api.cpp"
                         "images/splash_screen_logo.c"
                         "images/splash_screen_footer.c"
                        PRIV_REQUIRES 
@@ -11,4 +12,5 @@ idf_component_register(SRCS
                         nvs_flash
                         esp_event
                         mbedtls
+                        json
                        INCLUDE_DIRS "")

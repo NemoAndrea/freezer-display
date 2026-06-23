@@ -5,3 +5,4 @@
 #define API_AUTH_TOKEN        "your_auth_token"
 #define CONFIG_WIFI_SSID      "Your_WiFi_Name"
 #define CONFIG_WIFI_PASSWORD  "Your_WiFi_Password"#define MINUTES_BETWEEN_CHECKS 1
+#define STORAGE_LAYER_ID       904703
