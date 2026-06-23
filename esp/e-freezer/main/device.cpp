@@ -143,7 +143,9 @@ bool Device::begin() {
     ESP_LOGI(TAG, "Allocating %dKb for draw buffer", (draw_buffer_size) / 1024);
 
     static lv_disp_draw_buf_t draw_buffer_dsc;
-    auto draw_buffer = (lv_color_t*)heap_caps_malloc(draw_buffer_size, MALLOC_CAP_INTERNAL);
+    // we allocate the draw buffer on our massive SPIRAM as we do not need extreme speed anyway
+    // freeing up our fast internal ESP RAM for stuff like crypto and networking
+    auto draw_buffer = (lv_color_t*)heap_caps_malloc(draw_buffer_size, MALLOC_CAP_SPIRAM);
     if (!draw_buffer) {
         ESP_LOGE(TAG, "Failed to allocate draw buffer");
         esp_restart();

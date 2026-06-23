@@ -9,10 +9,21 @@ Select the instructions depending on Espressif chip installed on your developmen
 - [ESP32 Getting Started Guide](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/index.html)
 - [ESP32-S2 Getting Started Guide](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s2/get-started/index.html)
 
+## High level code overview
+
+The main operation loop is very simple; everyhting runs on a single core, as we do not need dynamic UI; we can hold up the UI updates while we run some checks or build a new screen.
+
+We have two tasks running on the main core:
+1. One task updates the UI (and triggers display refresh)
+2. Another task handles getting data from the API and building the new screen; serving as a periodic background process
+
+Task number 2 has a higher priority than task 1, and will run whenever not explicitly paused. We run this task 2 on a loop with a long pause (with `vTaskDelay()`), during which lower priority processes such as our UI code will run. 
+
+This way we effectively only run our background processes only periodically.
 
 ## Example folder contents
 
-The project **e-freezer** contains one source file in C language [main.c](main/main.c). The file is located in folder [main](main).
+The project **e-freezer** contains one source file in C++ language [main.cpp](main/main.cpp). The file is located in folder [main](main).
 
 ESP-IDF projects are built using CMake. The project build configuration is contained in `CMakeLists.txt` files that provide set of directives and instructions describing the project's source files and targets (executable, library, or both).
 
@@ -38,15 +49,17 @@ Set the following values in `sdkconfig`:
 #
 CONFIG_IT8951_SPI_HOST=3
 CONFIG_IT8951_SPI_BUS_SPEED_DIVIDER=7
-CONFIG_IT8951_RESET_PIN=28
-CONFIG_IT8951_DISPLAY_READY_PIN=27
-CONFIG_IT8951_CS_PIN=31
-CONFIG_IT8951_MOSI_PIN=34
-CONFIG_IT8951_MISO_PIN=33
-CONFIG_IT8951_SCLK_PIN=32
+CONFIG_IT8951_RESET_PIN=7
+CONFIG_IT8951_DISPLAY_READY_PIN=6
+CONFIG_IT8951_CS_PIN=34
+CONFIG_IT8951_MOSI_PIN=35
+CONFIG_IT8951_MISO_PIN=37
+CONFIG_IT8951_SCLK_PIN=36
 # end of IT8951 controller
 ```
 > [!todo] work on a more automatic way to set this up
+
+You will also need to increase the partition size for the application. Use `idf.py menuconfig`, and tset the type to `Single factory app (large), no OTA`
 
 ## Troubleshooting
 
