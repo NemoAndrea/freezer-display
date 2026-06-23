@@ -18,5 +18,5 @@ for file in bmp/*.png; do
     output="${file%.png}.bmp"
     
     # Run the conversion, and if it succeeds (&&), delete the PNG
-    magick "$file" -colorspace gray -normalize -depth 4 -flop -type Palette BMP3:"$output" && rm "$file"
+    magick "$file" -colorspace gray -normalize -depth 4 -type Palette BMP3:"$output" && rm "$file"
 done

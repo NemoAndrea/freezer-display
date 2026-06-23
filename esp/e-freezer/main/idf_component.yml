@@ -14,6 +14,6 @@ dependencies:
   #   # `public` flag doesn't have an effect dependencies of the `main` component.
   #   # All dependencies of `main` are public by default.
   #   public: true
-  lvgl/lvgl: ^9.5.0  # powerful graphics library
+  lvgl/lvgl: ^8.4.0  # powerful graphics library
   it8951-esp32:  # driver for the e-ink display
     git: https://github.com/pvginkel/it8951-esp32

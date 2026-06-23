@@ -38,19 +38,17 @@ void Device::set_on(bool on) {
     }
 }
 
-void Device::flush_cb(lv_display_t* disp_drv, const lv_area_t* area, uint8_t* color_p) {
+void Device::flush_cb(lv_disp_drv_t* disp_drv, const lv_area_t* area, lv_color_t* color_p) {
     assert(LV_COLOR_DEPTH == 16);
 
     ESP_LOGD(TAG, "Updating display %dx%d %dx%d", area->x1, area->y1, area->x2, area->y2);
-    ESP_LOGI(TAG, "flush_cb_time");
 
     set_on(true);
 
     const uint16_t display_width = (area->x2 - area->x1) + 1;
-    const uint16_t display_height = lv_display_get_horizontal_resolution(disp_drv);
+    const uint16_t display_height = disp_drv->hor_res;
 
     if (!_flushing) {
-        ESP_LOGI(TAG, "!_flushing");
         _flushing = true;
         _flush_start = esp_get_millis();
 
@@ -61,31 +59,22 @@ void Device::flush_cb(lv_display_t* disp_drv, const lv_area_t* area, uint8_t* co
             .h = display_height,
         };
 
-        _display.load_image_start(area, _display.get_memory_address(), IT8951_ROTATE_90, IT8951_PIXEL_FORMAT_4BPP);
+        _display.load_image_start(area, _display.get_memory_address(), IT8951_ROTATE_270, IT8951_PIXEL_FORMAT_4BPP);
     }
 
-    const auto width = (area->x2 - area->x1) + 1;
+    const auto width = display_width;
     const auto height = (area->y2 - area->y1) + 1;
     const auto buffer_len = _display.get_buffer_len();
 
     auto buffer = _display.get_buffer();
     size_t buffer_offset = 0;
 
-    lv_color_t* colors = (lv_color_t*)color_p;
+    for (lv_coord_t y = 0; y < height; y++) {
+        for (lv_coord_t x = width - 2; x >= 0; x -= 2) {
+            const auto b1 = color_p[y * width + x].ch.red >> 1;
+            const auto b2 = color_p[y * width + x + 1].ch.red >> 1;
 
-    for (int32_t y = 0; y < height; y++) {
-        for (int32_t x = width - 2; x >= 0; x -= 2) {
-            // 1. Convert the opaque lv_color_t structures to standard 16-bit RGB565 integers
-            uint16_t pixel1 = lv_color_to_u16(colors[y * width + x]);
-            uint16_t pixel2 = lv_color_to_u16(colors[y * width + x + 1]);
-
-            // 2. Isolate the Red channel bits (top 5 bits of RGB565: RRRRRGGGGGGBBBBB)
-            // Shift right by 11 to get the 5-bit red value (0-31), then shift right by 1 to get 4-bit (0-15)
-            const auto b1 = ((pixel1 & 0xF800) >> 11) >> 1;
-            const auto b2 = ((pixel2 & 0xF800) >> 11) >> 1;
-
-            // 3. Pack them into your 4-bit-per-pixel (4BPP) e-paper buffer byte
-            buffer[buffer_offset++] = b1 | (b2 << 4);
+            buffer[buffer_offset++] = b1 | b2 << 4;
 
             if (buffer_offset >= buffer_len) {
                 _display.load_image_flush_buffer(buffer_offset);
@@ -97,7 +86,6 @@ void Device::flush_cb(lv_display_t* disp_drv, const lv_area_t* area, uint8_t* co
 
     if (buffer_offset > 0) {
         _display.load_image_flush_buffer(buffer_offset);
-        ESP_LOGD(TAG, "squeezing out the remainder of bytes");
     }
 
     auto is_last = lv_disp_flush_is_last(disp_drv);
@@ -130,7 +118,7 @@ void Device::flush_cb(lv_display_t* disp_drv, const lv_area_t* area, uint8_t* co
 }
 
 bool Device::begin() {
-    _display.setup(-2.06f);
+    _display.setup(-1.15f);
 
     _display.clear_screen();
 
@@ -148,50 +136,39 @@ bool Device::begin() {
     ESP_ERROR_CHECK(esp_timer_create(&lvgl_tick_timer_args, &lvgl_tick_timer));
     ESP_ERROR_CHECK(esp_timer_start_periodic(lvgl_tick_timer, ESP_TIMER_MS(LVGL_TICK_PERIOD_MS)));
 
-    ESP_LOGI(TAG, "Turning screen off %d", _display.get_height());
-    const int draw_buffer_lines = _display.get_height();  // we have enough memmory, just throw the whole display in memory
+    const int draw_buffer_lines = 40;
     const size_t draw_buffer_pixels = _display.get_width() * draw_buffer_lines;
     const size_t draw_buffer_size = sizeof(lv_color_t) * draw_buffer_pixels;
 
-    ESP_LOGI(TAG, "Allocating %dKb for draw buffer in PSRAM", (draw_buffer_size) / 1024);
+    ESP_LOGI(TAG, "Allocating %dKb for draw buffer", (draw_buffer_size) / 1024);
 
-    // Request memory from SPIRAM (PSRAM) with strict 64-byte boundary alignment
-    auto draw_buffer = (uint8_t*)heap_caps_aligned_alloc(64, draw_buffer_size, MALLOC_CAP_SPIRAM);
+    static lv_disp_draw_buf_t draw_buffer_dsc;
+    auto draw_buffer = (lv_color_t*)heap_caps_malloc(draw_buffer_size, MALLOC_CAP_INTERNAL);
     if (!draw_buffer) {
-        ESP_LOGE(TAG, "Failed to allocate draw buffer in PSRAM");
-        esp_restart();
-    }
-    if (draw_buffer != nullptr) {
-        memset(draw_buffer, 0x7D, draw_buffer_size);
-    }
-
-    // Instantiate a display instance
-    lv_display_t* display = lv_display_create(_display.get_width(), _display.get_height());
-    if (!display) {
-        ESP_LOGE(TAG, "Failed to create LVGL display handle");
-        // Clean up allocated PSRAM before crashing
-        heap_caps_free(draw_buffer); 
+        ESP_LOGE(TAG, "Failed to allocate draw buffer");
         esp_restart();
     }
 
-    // Attach render buffers and partial strategy flag 
-    lv_display_set_buffers(display, draw_buffer, nullptr, draw_buffer_size, LV_DISPLAY_RENDER_MODE_PARTIAL);
-    
-    lv_display_set_user_data(display, this);
-    
-    // TODO check this pointlessly verbose bit of code?
-    lv_display_set_flush_cb(display, [](lv_display_t* disp, const lv_area_t* area, uint8_t* px_map) {
-        auto* dev = (Device*)lv_display_get_user_data(disp);
-        if (dev) {
-            dev->flush_cb(disp, area, px_map);
-        }
-    });
+    lv_disp_draw_buf_init(&draw_buffer_dsc, draw_buffer, nullptr, draw_buffer_pixels);
 
-    // 3. Set the DPI (Dots Per Inch)
-    lv_display_set_dpi(display, LV_DPI_DEF);
+    static lv_disp_drv_t disp_drv;
+    lv_disp_drv_init(&disp_drv);
 
-    // 4. Set the Rotation to 90 degrees
-    lv_display_set_rotation(display, LV_DISPLAY_ROTATION_90);
+    disp_drv.hor_res = _display.get_width();
+    disp_drv.ver_res = _display.get_height();
+
+    disp_drv.flush_cb = [](lv_disp_drv_t* disp_drv, const lv_area_t* area, lv_color_t* color_p) {
+        ((Device*)disp_drv->user_data)->flush_cb(disp_drv, area, color_p);
+    };
+    disp_drv.user_data = this;
+
+    disp_drv.draw_buf = &draw_buffer_dsc;
+
+    disp_drv.full_refresh = 1;
+    disp_drv.dpi = LV_DPI_DEF;
+    disp_drv.rotated = LV_DISP_ROT_90;
+
+    lv_disp_drv_register(&disp_drv);
 
     ESP_LOGI(TAG, "Device initialization complete");
 
