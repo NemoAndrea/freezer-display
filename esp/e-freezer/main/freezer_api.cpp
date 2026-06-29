@@ -10,7 +10,6 @@
 #include "cJSON.h"
 #include <chrono>  // time functions
 
-
 #include "freezer_api.h"
 
 static const char* TAG = "FreezerAPI";
@@ -165,6 +164,10 @@ cJSON* FreezerAPI::get_json(const char* url) {
     return NULL;
 }
 
+
+
+
+
 FreezerAPI::FreezerContent FreezerAPI::get_freezer_content() { 
     ESP_LOGI(TAG, "Getting content from Freezer with storageID %d... ", _freezer_id);
 
@@ -181,15 +184,16 @@ FreezerAPI::FreezerContent FreezerAPI::get_freezer_content() {
     int idx_comp = 0;
     int idx_col = 0;
     int idx_row = 0;  // these are the drawers in eLabJournal
+    // some rows/columns may be empty, but we still want to get the correct 'grid' dimensions of freezer
+    int max_idx_col = 0;  
+    int max_idx_row = 0;  
 
-    std::vector<FreezerBox> box_vec;
+    std::vector<std::tuple<FreezerBox, FreezerBox>> box_vec;  // intialise
     FreezerContent content(freezer_name, box_vec,
          std::chrono::system_clock::now(),
         {idx_comp, idx_col, idx_row});
     
     
-
-
     // start by looping over the freezer to yield compartments 
     url = build_url(("storageLayers/"+ std::to_string(_freezer_id) + "/childLayers").c_str());
     cJSON* freezer_compartments = get_json(url.c_str());
@@ -222,6 +226,7 @@ FreezerAPI::FreezerContent FreezerAPI::get_freezer_content() {
             LayerItem item(column_id, column_name, idx_col);
             columns.push_back(item);
             idx_col++;
+            if (idx_col > max_idx_col) {max_idx_col = idx_col;}
         }
         cJSON_Delete(compartment_columns);
 
@@ -241,6 +246,7 @@ FreezerAPI::FreezerContent FreezerAPI::get_freezer_content() {
                 LayerItem item(drawer_id, drawer_name, idx_row);
                 drawers.push_back(item);
                 idx_row++;
+                if (idx_row > max_idx_row) {max_idx_row = idx_row;}
             }
             cJSON_Delete(compartment_drawers);
 
@@ -264,17 +270,14 @@ FreezerAPI::FreezerContent FreezerAPI::get_freezer_content() {
 
                 // also sort alphabetically for consistency between API calls; not essential
                 std::sort(boxes.begin(), boxes.end(), compare_layeritem_by_name);  
-                for (const LayerItem& box: boxes) {
-                    FreezerBox new_box(
-                        box.name,
-                        box.id, 
-                        compartment.ctr, 
-                        column.ctr, 
-                        drawer.ctr
-                    );
-                    content.boxes.push_back(new_box);
-                    content.dimensions = {idx_comp, idx_col, idx_row};
-                }
+                // TODO handle the case of only a single box
+                std::tuple boxpair{
+                    FreezerBox{boxes[0].name, boxes[0].id, compartment.ctr, column.ctr, drawer.ctr},
+                    FreezerBox{boxes[1].name, boxes[1].id, compartment.ctr, column.ctr, drawer.ctr}
+                };
+
+                content.drawers.push_back(boxpair);
+                content.dimensions = {idx_comp, max_idx_col, max_idx_row};
             }
         }
     }
@@ -282,3 +285,26 @@ FreezerAPI::FreezerContent FreezerAPI::get_freezer_content() {
     return content;
 }
 
+
+// a function for testing and iterating on the UI (should really use the simulator for that)
+FreezerAPI::FreezerContent FreezerAPI::get_dummy_freezer(){
+
+    std::vector<std::tuple<FreezerBox, FreezerBox>> box_vec;  // intialise
+    FreezerContent dummy_content("DUMMY FREEZER", box_vec,
+        std::chrono::system_clock::now(),
+        {2, 3, 5});
+
+    for (int i = 0; i < 2; ++i) {
+        for (int j = 0; j < 3; ++j) {
+            for (int k = 0; k < 5; ++k) {
+                std::tuple boxpair{
+                    FreezerBox{"Dummy | apples, pears, cocaine", 1235566, i, j, k},
+                    FreezerBox{"Dummy | apples, pears, cocaine", 1235566, i, j, k}
+                };
+                dummy_content.drawers.push_back(boxpair);
+            }
+        }
+    } 
+
+    return dummy_content;
+}
