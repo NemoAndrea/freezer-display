@@ -1,6 +1,8 @@
 #include "wifi_manager.h"
 #include "freezer_api.h"
 #include "freezer_UI.h"
+#include "esp_sntp.h"
+#include <ctime>
 
 // this process runs as the highest priority task on the main core
 // and takes care of checking the API and updating the screen objects when
@@ -15,6 +17,14 @@ void background_logic(void* pvParameters) {
     WifiManager wifi;  
     wifi.intialise_connection();
 
+    // update the system time from a NTP server
+    esp_sntp_setoperatingmode(SNTP_OPMODE_POLL);
+    esp_sntp_setservername(0, "pool.ntp.org"); // Use global NTP pool
+    esp_sntp_init();
+    // set timezone to UTC+1 +DST; switch to DST in month 3 (March) week 5, day 0 etc
+    setenv("TZ", "CET-1CEST,M3.5.0,M10.5.0", 1); 
+    tzset();
+
     // Set up a FreezerAPI object
     FreezerAPI freezer_api(API_ENDPOINT, API_AUTH_TOKEN, STORAGE_LAYER_ID); 
 
@@ -23,8 +33,7 @@ void background_logic(void* pvParameters) {
 
     // main loop run every x minutes to check for updates, specified in config.h
     while (true) {
-        
-
+    
         // check our connection status first
         WifiManager::NetworkState state = wifi.get_status();
 
@@ -46,6 +55,7 @@ void background_logic(void* pvParameters) {
 
                 // we are good to start querying freezerdata
                 auto freezer = freezer_api.get_freezer_content();
+                //auto freezer = freezer_api.get_dummy_freezer();
                 
                 // draw main fridge UI
                 build_freezer_UI(freezer, scr_freezer_content);
@@ -62,6 +72,6 @@ void background_logic(void* pvParameters) {
         }
 
         // Sleep for 10 sec
-        vTaskDelay(pdMS_TO_TICKS(60000));
+        vTaskDelay(pdMS_TO_TICKS(240000));
     }
 }

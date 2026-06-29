@@ -57,7 +57,7 @@ CONFIG_IT8951_MISO_PIN=37
 CONFIG_IT8951_SCLK_PIN=36
 # end of IT8951 controller
 ```
-> [!todo] work on a more automatic way to set this up
+> [!todo] work on a more automatic way to set this up using a sdkconfig.defaults file
 
 You will also need to increase the partition size for the application. Use `idf.py menuconfig`, and tset the type to `Single factory app (large), no OTA`
 

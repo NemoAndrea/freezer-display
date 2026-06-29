@@ -1,3 +1,12 @@
+# get current git commit
+execute_process(
+    COMMAND git rev-parse --short HEAD
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    OUTPUT_VARIABLE GIT_HASH
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+    ERROR_QUIET
+)
+
 idf_component_register(SRCS 
                         "main.cpp"
                         "device.cpp"
@@ -14,3 +23,5 @@ idf_component_register(SRCS
                         mbedtls
                         json
                        INCLUDE_DIRS "")
+
+target_compile_definitions(${COMPONENT_LIB} PRIVATE "-DGIT_COMMIT_HASH=\"${GIT_HASH}\"")
