@@ -3,6 +3,7 @@
 #include "freezer_UI.h"
 #include "esp_sntp.h"
 #include <ctime>
+#include "build_error_screen.h"
 
 // this process runs as the highest priority task on the main core
 // and takes care of checking the API and updating the screen objects when
@@ -30,6 +31,7 @@ void background_logic(void* pvParameters) {
 
     // set of a screen for the freezer UI
     lv_obj_t * scr_freezer_content = lv_obj_create(NULL);
+    lv_obj_t * scr_error = lv_obj_create(NULL);
 
     // main loop run every x minutes to check for updates, specified in config.h
     while (true) {
@@ -40,12 +42,12 @@ void background_logic(void* pvParameters) {
         if (state == WifiManager::NetworkState::DISCONNECTED) {
             ESP_LOGI(TAG, "Lost connection to router");
             
-            // error screen: can't connect to router
+            build_error_screen(VisualError::no_wifi, scr_error);
 
         } else if (state == WifiManager::NetworkState::CONNECTED_NO_INT) {
             ESP_LOGI(TAG, "Connected to router, but cannot receive data (no internet)");
             
-            // error screen: connected, no data
+            build_error_screen(VisualError::no_internet, scr_error);
 
         } else if (state == WifiManager::NetworkState::CONNECTED_WITH_INT) {
             ESP_LOGI(TAG, "Router connected and receiving data");
@@ -65,13 +67,11 @@ void background_logic(void* pvParameters) {
 
             } else {
                 ESP_LOGI(TAG, "Unable to access Freezer API");
-
-                // error: conneciton okay, but cannot access freezer API
-
+                build_error_screen(VisualError::no_api, scr_error);
             }
         }
 
         // Sleep for 10 sec
-        vTaskDelay(pdMS_TO_TICKS(240000));
+        vTaskDelay(pdMS_TO_TICKS(10000));
     }
 }

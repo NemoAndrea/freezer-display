@@ -13,6 +13,9 @@ idf_component_register(SRCS
                         "freezer_api.cpp"
                         "images/splash_screen_logo.c"
                         "images/splash_screen_footer.c"
+                        "images/error_no_api.c"
+                        "images/error_no_wifi.c"
+                        "images/error_no_internet.c"
                        PRIV_REQUIRES 
                         spi_flash
                         lvgl
@@ -22,6 +25,8 @@ idf_component_register(SRCS
                         esp_event
                         mbedtls
                         json
+                        tinyusb
+                        fatfs
                        INCLUDE_DIRS "")
 
 target_compile_definitions(${COMPONENT_LIB} PRIVATE "-DGIT_COMMIT_HASH=\"${GIT_HASH}\"")
