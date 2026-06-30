@@ -213,7 +213,6 @@ FreezerAPI::FreezerContent FreezerAPI::get_freezer_content() {
     // loop over compartments to yield columns
     std::sort(compartments.begin(), compartments.end(), compare_layeritem_by_name); // sort alphabetically
     for (const LayerItem& compartment: compartments) {
-        idx_col = 0;
         ESP_LOGI(TAG, "Compartment: %s", compartment.name.c_str());
         url = build_url(("storageLayers/"+ std::to_string(compartment.id) + "/childLayers").c_str());
         cJSON* compartment_columns = get_json(url.c_str());
@@ -223,18 +222,19 @@ FreezerAPI::FreezerContent FreezerAPI::get_freezer_content() {
         cJSON_ArrayForEach(column, column_arr) {
             int column_id = cJSON_GetObjectItemCaseSensitive(column, "storageLayerID")->valueint;
             std::string column_name = cJSON_GetObjectItemCaseSensitive(column, "name")->valuestring;
-            LayerItem item(column_id, column_name, idx_col);
+            LayerItem item(column_id, column_name, 0);
             columns.push_back(item);
-            idx_col++;
-            if (idx_col > max_idx_col) {max_idx_col = idx_col;}
+            
         }
         cJSON_Delete(compartment_columns);
-
+        idx_col = 0;
         // loop over columns to yield drawer
         std::sort(columns.begin(), columns.end(), compare_layeritem_by_name); // sort alphabetically
-        for (const LayerItem& column: columns) {
-            idx_row = 0;
+        for (LayerItem& column: columns) {
             ESP_LOGI(TAG, "Column: %s", column.name.c_str());
+            column.ctr = idx_col;
+            idx_col++;
+            if (idx_col > max_idx_col) {max_idx_col = idx_col;}
             url = build_url(("storageLayers/"+ std::to_string(column.id) + "/childLayers").c_str());
             cJSON* compartment_drawers = get_json(url.c_str());
             cJSON* drawer_arr = cJSON_GetObjectItemCaseSensitive(compartment_drawers, "data");
@@ -243,17 +243,19 @@ FreezerAPI::FreezerContent FreezerAPI::get_freezer_content() {
             cJSON_ArrayForEach(drawer, drawer_arr) {
                 int drawer_id = cJSON_GetObjectItemCaseSensitive(drawer, "storageLayerID")->valueint;
                 std::string drawer_name = cJSON_GetObjectItemCaseSensitive(drawer, "name")->valuestring;
-                LayerItem item(drawer_id, drawer_name, idx_row);
+                LayerItem item(drawer_id, drawer_name, 0);
                 drawers.push_back(item);
-                idx_row++;
-                if (idx_row > max_idx_row) {max_idx_row = idx_row;}
             }
             cJSON_Delete(compartment_drawers);
 
             // loop over drawers to yield boxes
+            idx_row = 0;
             std::sort(drawers.begin(), drawers.end(), compare_layeritem_by_name); // sort alphabetically
-            for (const LayerItem& drawer: drawers) {
-                ESP_LOGI(TAG, "Drawer: %s", drawer.name.c_str());
+            for (LayerItem& drawer: drawers) {
+                ESP_LOGI(TAG, "Drawer: '%s'", drawer.name.c_str());
+                drawer.ctr = idx_row;
+                idx_row++;
+                if (idx_row > max_idx_row) {max_idx_row = idx_row;}
                 url = build_url(("storageLayers/"+ std::to_string(drawer.id) + "/childLayers").c_str());
                 cJSON* compartment_boxes = get_json(url.c_str());
                 cJSON* boxes_arr = cJSON_GetObjectItemCaseSensitive(compartment_boxes, "data");
