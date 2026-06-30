@@ -5,6 +5,7 @@
 #include <format>
 #include <string>
 #include <ctime>
+#include <ranges>
 
 struct GridDsc {
     std::vector<lv_coord_t> cols;
@@ -67,11 +68,55 @@ void build_drawer(std::tuple<FreezerAPI::FreezerBox, FreezerAPI::FreezerBox> dra
         lv_obj_set_style_radius(vertical_bar, 0, 0);
         lv_obj_set_style_border_width(vertical_bar, 0, 0);  // override this as it would draw over bg
 
+        // text (samples)
+        lv_obj_t* list_container_1 = lv_obj_create(box_item);
+        lv_obj_set_size(list_container_1, lv_pct(48), LV_SIZE_CONTENT); // Width capped at 45% of parent
+        lv_obj_set_flex_flow(list_container_1, LV_FLEX_FLOW_COLUMN);     // Stack items vertically
+        lv_obj_set_style_pad_all(list_container_1, 0, 0);               // Strip padding
+        lv_obj_set_style_bg_opa(list_container_1, LV_OPA_TRANSP, 0); // Hide background container
+        lv_obj_set_style_border_width(list_container_1, 0, 0);
+        lv_obj_align(list_container_1, LV_ALIGN_TOP_LEFT, 4, 0);
+        for (const auto& [index, sample] : box_1.samples | std::views::enumerate) {
+            lv_obj_t* line = lv_label_create(list_container_1);
+            lv_label_set_long_mode(line, LV_LABEL_LONG_DOT);
+            lv_obj_set_width(line, lv_pct(100)); 
+            lv_obj_set_style_max_height(line, 26, 0); // Roughly the height of a 22px font line
+            // add the box owner name as a way to offset the text just the right amount
+            if (index == 0) {lv_label_set_text(line, (box_1.owner + " " + sample).c_str());}
+            else {lv_label_set_text(line, (sample).c_str());}
+            lv_obj_set_style_text_font(line, &lv_font_montserrat_20, 0);
+            lv_obj_set_style_pad_all(list_container_1, 0, 0);
+            lv_obj_set_style_pad_row(list_container_1, 0, 0);
+        }
+
+        lv_obj_t* list_container_2 = lv_obj_create(box_item);
+        lv_obj_set_size(list_container_2, lv_pct(48), LV_SIZE_CONTENT); // Width capped at 45% of parent
+        lv_obj_set_flex_flow(list_container_2, LV_FLEX_FLOW_COLUMN);     // Stack items vertically
+        lv_obj_set_style_pad_all(list_container_2, 0, 0);               // Strip padding
+        lv_obj_set_style_bg_opa(list_container_2, LV_OPA_TRANSP, 0); // Hide background container
+        lv_obj_set_style_border_width(list_container_2, 0, 0);
+        lv_obj_align(list_container_2, LV_ALIGN_TOP_MID, 5, 0);
+        lv_obj_set_style_translate_x(list_container_2, lv_pct(50), 0);
+        for (const auto& [index, sample] : box_2.samples | std::views::enumerate) {
+            lv_obj_t* line = lv_label_create(list_container_2);
+            lv_label_set_long_mode(line, LV_LABEL_LONG_DOT);
+            lv_obj_set_width(line, lv_pct(100)); 
+            lv_obj_set_style_max_height(line, 26, 0); // Roughly the height of a 22px font line
+            // add the box owner name as a way to offset the text just the right amount
+            if (index == 0 && (box_1.owner != box_2.owner)) {
+                lv_label_set_text(line, (box_2.owner + " " + sample).c_str());}
+            else {lv_label_set_text(line, (sample).c_str());}
+            lv_obj_set_style_text_font(line, &lv_font_montserrat_20, 0);
+            lv_obj_set_style_pad_all(list_container_2, 0, 0);
+            lv_obj_set_style_pad_row(list_container_2, 0, 0);
+        }
+
         // text (owners)
         lv_obj_t* label_box_1 = lv_label_create(box_item);
         lv_label_set_text(label_box_1, (box_1.owner).c_str());
-        lv_obj_align(label_box_1, LV_ALIGN_TOP_LEFT, 0, -4);
+        lv_obj_align(label_box_1, LV_ALIGN_TOP_LEFT, 0, -1);
         lv_obj_set_style_pad_hor(label_box_1, 3, 0);
+        lv_obj_set_style_pad_ver(label_box_1, 2, 0);
         
         lv_obj_set_style_bg_color(label_box_1, get_grayscale_color(0), 0); // black background
         lv_obj_set_style_bg_opa(label_box_1, LV_OPA_COVER, 0);
@@ -83,54 +128,16 @@ void build_drawer(std::tuple<FreezerAPI::FreezerBox, FreezerAPI::FreezerBox> dra
         if (box_1.owner != box_2.owner) {
             lv_obj_t* label_box_2 = lv_label_create(box_item);
             lv_label_set_text(label_box_2, (box_2.owner).c_str());
-            lv_obj_align(label_box_2, LV_ALIGN_TOP_MID, 0, -4);
+            lv_obj_align(label_box_2, LV_ALIGN_TOP_MID, 0, -1);
             lv_obj_set_style_translate_x(label_box_2, lv_pct(50), 0);
             lv_obj_set_style_pad_hor(label_box_2, 4, 0);
+            lv_obj_set_style_pad_ver(label_box_2, 2, 0);
 
             lv_obj_set_style_bg_color(label_box_2, get_grayscale_color(0), 0); // black background
             lv_obj_set_style_bg_opa(label_box_2, LV_OPA_COVER, 0);
 
             lv_obj_set_style_text_color(label_box_2, get_grayscale_color(15), 0);
             lv_obj_set_style_text_font(label_box_2, &lv_font_montserrat_20, 0);
-        }
-
-        // text (samples)
-        lv_obj_t* list_container_1 = lv_obj_create(box_item);
-        lv_obj_set_size(list_container_1, lv_pct(48), LV_SIZE_CONTENT); // Width capped at 45% of parent
-        lv_obj_set_flex_flow(list_container_1, LV_FLEX_FLOW_COLUMN);     // Stack items vertically
-        lv_obj_set_style_pad_all(list_container_1, 0, 0);               // Strip padding
-        lv_obj_set_style_bg_opa(list_container_1, LV_OPA_TRANSP, 0); // Hide background container
-        lv_obj_set_style_border_width(list_container_1, 0, 0);
-        lv_obj_align(list_container_1, LV_ALIGN_TOP_LEFT, 4, 18);
-        for (const auto& sample : box_1.samples) {
-            lv_obj_t* line = lv_label_create(list_container_1);
-            lv_label_set_long_mode(line, LV_LABEL_LONG_DOT);
-            lv_obj_set_width(line, lv_pct(100)); 
-            lv_obj_set_style_max_height(line, 26, 0); // Roughly the height of a 22px font line
-            lv_label_set_text(line, sample.c_str());
-            lv_obj_set_style_text_font(line, &lv_font_montserrat_22, 0);
-            lv_obj_set_style_pad_all(list_container_1, 0, 0);
-            lv_obj_set_style_pad_row(list_container_1, 0, 0);
-        }
-
-        lv_obj_t* list_container_2 = lv_obj_create(box_item);
-        lv_obj_set_size(list_container_2, lv_pct(48), LV_SIZE_CONTENT); // Width capped at 45% of parent
-        lv_obj_set_flex_flow(list_container_2, LV_FLEX_FLOW_COLUMN);     // Stack items vertically
-        lv_obj_set_style_pad_all(list_container_2, 0, 0);               // Strip padding
-        lv_obj_set_style_bg_opa(list_container_2, LV_OPA_TRANSP, 0); // Hide background container
-        lv_obj_set_style_border_width(list_container_2, 0, 0);
-        if (box_1.owner != box_2.owner) {lv_obj_align(list_container_2, LV_ALIGN_TOP_MID, 4, 18);}
-        else {lv_obj_align(list_container_2, LV_ALIGN_TOP_MID, 6, 2);}\
-        lv_obj_set_style_translate_x(list_container_2, lv_pct(50), 0);
-        for (const auto& sample : box_2.samples) {
-            lv_obj_t* line = lv_label_create(list_container_2);
-            lv_label_set_long_mode(line, LV_LABEL_LONG_DOT);
-            lv_obj_set_width(line, lv_pct(100)); 
-            lv_obj_set_style_max_height(line, 26, 0); // Roughly the height of a 22px font line
-            lv_label_set_text(line, sample.c_str());
-            lv_obj_set_style_text_font(line, &lv_font_montserrat_22, 0);
-            lv_obj_set_style_pad_all(list_container_2, 0, 0);
-            lv_obj_set_style_pad_row(list_container_2, 0, 0);
         }
         
         // border
