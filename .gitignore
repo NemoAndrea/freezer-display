@@ -4,6 +4,9 @@
 # files that can be generated from commited source files
 /assets/bmp/*.bmp
 
+# ESP IDF related
+**/sdkconfig.old
+
 # FreeCAD
 *.FCStd1
 *.FCBak
@@ -41,6 +44,7 @@ fp-info-cache
 # Exported BOM files
 *.xml
 *.csv
+!**/partitions.csv
 
 # Other ignores
 *.tmp.*
