@@ -1,0 +1,16 @@
+# E-Freezer configuration file
+
+# Essential
+API_ENDPOINT = "https://tudelft.elabjournal.com/api/v1/"
+API_AUTH_TOKEN = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+API_STORAGE_LAYER_ID = 123456  
+CONFIG_WIFI_SSID = "your_wifi_ssid"
+CONFIG_WIFI_PASSWORD = "your_wifi_password"
+
+# Ergonomics
+MINUTES_BETWEEN_REFRESH = 10  # how often to check API and update display
+SUPPORT_PAGE_URL = "github.com/NemoAndrea/freezer-display"  # will be displayed on error screens
+
+# Development variables
+# Only change these if you know what you are doing
+SKIP_USB = 0

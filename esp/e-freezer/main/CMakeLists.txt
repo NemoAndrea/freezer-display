@@ -29,4 +29,8 @@ idf_component_register(SRCS
                         fatfs
                        INCLUDE_DIRS "")
 
+# initialise the FAT storage with a config file (located at ../fat_files/config.txt)
+fatfs_create_spiflash_image(storage "../fat_files" FLASH_IN_PROJECT)
+
+# Make the git commit accessible as a global variable
 target_compile_definitions(${COMPONENT_LIB} PRIVATE "-DGIT_COMMIT_HASH=\"${GIT_HASH}\"")
