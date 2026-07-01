@@ -1,14 +1,5 @@
 # E-Freezer
 
-## How to use example
-
-Follow detailed instructions provided specifically for this example.
-
-Select the instructions depending on Espressif chip installed on your development board:
-
-- [ESP32 Getting Started Guide](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/index.html)
-- [ESP32-S2 Getting Started Guide](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s2/get-started/index.html)
-
 ## High level code overview
 
 The main operation loop is very simple; everyhting runs on a single core, as we do not need dynamic UI; we can hold up the UI updates while we run some checks or build a new screen.
@@ -21,54 +12,26 @@ Task number 2 has a higher priority than task 1, and will run whenever not expli
 
 This way we effectively only run our background processes only periodically.
 
-## Example folder contents
+### Compiling code and workflow
 
-The project **e-freezer** contains one source file in C++ language [main.cpp](main/main.cpp). The file is located in folder [main](main).
-
-ESP-IDF projects are built using CMake. The project build configuration is contained in `CMakeLists.txt` files that provide set of directives and instructions describing the project's source files and targets (executable, library, or both).
-
-Below is short explanation of remaining files in the project folder.
+Assuming you have the tooling required for the [Espressif IoT Development Framework](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html) (ESP-IDF) available on your system, you can run the following (in the current directory) to test if the code compiles:
 
 ```
-├── CMakeLists.txt
-├── pytest_e-freezer.py      Python script used for automated testing
-├── main
-│   ├── CMakeLists.txt
-│   └── main.c
-└── README.md                  This is the file you are currently reading
+idf.py build
 ```
 
-For more information on structure and contents of ESP-IDF projects, please refer to Section [Build System](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/build-system.html) of the ESP-IDF Programming Guide.
-
-### Other config
-
-Set the following values in `sdkconfig`:
+If that works, you can connect the e-freezer device to your system through a USB cable. At this point, the device will likely be in the 'default' operating mode, and appear as a flash drive. To be able to reset the device and program it, you will need to prevent it from mounting as a flash drive. You can achieve this by opening the `config.txt` file that you will find on the flash drive and setting the field `skip_usb` to `true`. After saving, you can reboot the device, and now the following should work to flash new code and check the serial output:
 
 ```
-# IT8951 controller
-#
-CONFIG_IT8951_SPI_HOST=3
-CONFIG_IT8951_SPI_BUS_SPEED_DIVIDER=7
-CONFIG_IT8951_RESET_PIN=7
-CONFIG_IT8951_DISPLAY_READY_PIN=6
-CONFIG_IT8951_CS_PIN=34
-CONFIG_IT8951_MOSI_PIN=35
-CONFIG_IT8951_MISO_PIN=37
-CONFIG_IT8951_SCLK_PIN=36
-# end of IT8951 controller
+idf.py flash monitor  
 ```
-> [!todo] work on a more automatic way to set this up using a sdkconfig.defaults file
 
-You will also need to increase the partition size for the application. Use `idf.py menuconfig`, and tset the type to `Single factory app (large), no OTA`
+This will try to automatically detect the port of the device. It is quicker to just determine that port in advance (using e.g. `tio`) and specify it. 
 
-## Troubleshooting
+```
+# example port
+idf.py -p /dev/ttyACM0 flash monitor  
+```
 
-* Program upload failure
+When flashing, you probably do not want it to turn into a flash drive after booting. While developing, make sure to change the default config.txt which gets flashed to the device (located at [/fat_files/config.txt](fat_files/config.txt)) to specify `skip_usb` = true. Remember to set it back to `false` when you are ready to put the device back out in the wild again, as otherwise users won't have a way to change those essential configuration parameters!
 
-    * Hardware connection is not correct: run `idf.py -p PORT monitor`, and reboot your board to see if there are any output logs.
-    * The baud rate for downloading is too high: lower your baud rate in the `menuconfig` menu, and try again.
-
-
-### TODO
-
-* Add instructions on how to get into reprogram mode once USB is active
