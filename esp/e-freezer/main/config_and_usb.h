@@ -114,30 +114,33 @@ void readConfigAndSetupUSB(void *pvParameters) {
 
     // read the config file and read variables
     parse_configuration();    
-    ESP_LOGI("MEM", "task stack high water mark: %u bytes free", 
-         uxTaskGetStackHighWaterMark(NULL) * sizeof(StackType_t));
     
-
     // unmount VFS (destroys the previous wl_handle)
     esp_vfs_fat_spiflash_unmount_rw_wl("/usb", wl_handle);
 
+
     // Setup USB
 
-    // // get a raw Wear Levelling handle for the TinyUSB MSC driver
-    // const esp_partition_t *data_partition = esp_partition_find_first(ESP_PARTITION_TYPE_DATA, ESP_PARTITION_SUBTYPE_DATA_FAT, "storage");
-    // ESP_ERROR_CHECK(wl_mount(data_partition, &wl_handle));
+    if (!freezer_config.SKIP_USB){
+        ESP_LOGI("USB", "Enabling tinyUSB driver. Config files can be edited by mounting freezer as a drive");
+        ESP_LOGI("USB", "Note that serial communication may be lost.");
 
-    // // create the MSC storage backed by SPI flash / wear-levelling
-    // const tinyusb_msc_storage_config_t msc_config = {
-    //     .medium = { .wl_handle = wl_handle },
-    // };
-    // ESP_ERROR_CHECK(tinyusb_msc_new_storage_spiflash(&msc_config, &storage_hdl));
+        // get a raw Wear Levelling handle for the TinyUSB MSC driver
+        const esp_partition_t *data_partition = esp_partition_find_first(ESP_PARTITION_TYPE_DATA, ESP_PARTITION_SUBTYPE_DATA_FAT, "storage");
+        ESP_ERROR_CHECK(wl_mount(data_partition, &wl_handle));
 
-    // // read some options that can be set via `idf.py menuconfig`
-    // const tinyusb_config_t tusb_cfg = TINYUSB_DEFAULT_CONFIG();
-    // ESP_ERROR_CHECK(tinyusb_driver_install(&tusb_cfg));
-    
-    // printf("USB Drive is now active!\n");
+        // create the MSC storage backed by SPI flash / wear-levelling
+        const tinyusb_msc_storage_config_t msc_config = {
+            .medium = { .wl_handle = wl_handle },
+        };
+        ESP_ERROR_CHECK(tinyusb_msc_new_storage_spiflash(&msc_config, &storage_hdl));
+
+        // read some options that can be set via `idf.py menuconfig`
+        const tinyusb_config_t tusb_cfg = TINYUSB_DEFAULT_CONFIG();
+        ESP_ERROR_CHECK(tinyusb_driver_install(&tusb_cfg));
+    } else {
+        ESP_LOGI("USB", "Skipping tinyUSB mount point. This only makes sense for a development workflow.");
+    }
 
     vTaskDelete(NULL);
 }

@@ -17,3 +17,4 @@ dependencies:
   lvgl/lvgl: ^8.4.0  # powerful graphics library
   it8951-esp32:  # driver for the e-ink display
     git: https://github.com/pvginkel/it8951-esp32
+  espressif/esp_tinyusb: ^2.0.0

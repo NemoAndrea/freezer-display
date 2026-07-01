@@ -231,7 +231,7 @@ FreezerAPI::FreezerContent FreezerAPI::get_freezer_content() {
         // loop over columns to yield drawer
         std::sort(columns.begin(), columns.end(), compare_layeritem_by_name); // sort alphabetically
         for (LayerItem& column: columns) {
-            ESP_LOGI(TAG, "Column: %s", column.name.c_str());
+            //ESP_LOGI(TAG, "Column: %s", column.name.c_str());
             column.ctr = idx_col;
             idx_col++;
             if (idx_col > max_idx_col) {max_idx_col = idx_col;}
@@ -252,7 +252,7 @@ FreezerAPI::FreezerContent FreezerAPI::get_freezer_content() {
             idx_row = 0;
             std::sort(drawers.begin(), drawers.end(), compare_layeritem_by_name); // sort alphabetically
             for (LayerItem& drawer: drawers) {
-                ESP_LOGI(TAG, "Drawer: '%s'", drawer.name.c_str());
+                //ESP_LOGI(TAG, "Drawer: '%s'", drawer.name.c_str());
                 drawer.ctr = idx_row;
                 idx_row++;
                 if (idx_row > max_idx_row) {max_idx_row = idx_row;}
@@ -264,7 +264,7 @@ FreezerAPI::FreezerContent FreezerAPI::get_freezer_content() {
                 cJSON_ArrayForEach(box, boxes_arr) {
                     int box_id = cJSON_GetObjectItemCaseSensitive(box, "storageLayerID")->valueint;
                     std::string box_name = cJSON_GetObjectItemCaseSensitive(box, "name")->valuestring;
-                    ESP_LOGI(TAG, "Box: %s", box_name.c_str());
+                    //ESP_LOGI(TAG, "Box: %s", box_name.c_str());
                     LayerItem item(box_id, box_name);
                     boxes.push_back(item);
                 }
