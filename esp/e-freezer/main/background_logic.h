@@ -27,7 +27,10 @@ void background_logic(void* pvParameters) {
     tzset();
 
     // Set up a FreezerAPI object
-    FreezerAPI freezer_api(API_ENDPOINT, API_AUTH_TOKEN, STORAGE_LAYER_ID); 
+    FreezerAPI freezer_api(
+        freezer_config.API_ENDPOINT.c_str(),
+        freezer_config.API_AUTH_TOKEN.c_str(),
+        freezer_config.API_STORAGE_LAYER_ID); 
 
     // set of a screen for the freezer UI
     lv_obj_t * scr_freezer_content = lv_obj_create(NULL);
@@ -71,7 +74,7 @@ void background_logic(void* pvParameters) {
             }
         }
 
-        // Sleep for 10 sec
-        vTaskDelay(pdMS_TO_TICKS(10000));
+        // Sleep and let display rendering code take over. Wait time is specified in main config
+        vTaskDelay(pdMS_TO_TICKS(60000 * freezer_config.MINUTES_BETWEEN_REFRESH));
     }
 }

@@ -75,7 +75,7 @@ void build_drawer(std::tuple<FreezerAPI::FreezerBox, FreezerAPI::FreezerBox> dra
         lv_obj_set_style_pad_all(list_container_1, 0, 0);               // Strip padding
         lv_obj_set_style_bg_opa(list_container_1, LV_OPA_TRANSP, 0); // Hide background container
         lv_obj_set_style_border_width(list_container_1, 0, 0);
-        lv_obj_align(list_container_1, LV_ALIGN_TOP_LEFT, 4, 0);
+        lv_obj_align(list_container_1, LV_ALIGN_TOP_LEFT, 4, 2);
         for (const auto& [index, sample] : box_1.samples | std::views::enumerate) {
             lv_obj_t* line = lv_label_create(list_container_1);
             lv_label_set_long_mode(line, LV_LABEL_LONG_DOT);
@@ -95,7 +95,7 @@ void build_drawer(std::tuple<FreezerAPI::FreezerBox, FreezerAPI::FreezerBox> dra
         lv_obj_set_style_pad_all(list_container_2, 0, 0);               // Strip padding
         lv_obj_set_style_bg_opa(list_container_2, LV_OPA_TRANSP, 0); // Hide background container
         lv_obj_set_style_border_width(list_container_2, 0, 0);
-        lv_obj_align(list_container_2, LV_ALIGN_TOP_MID, 5, 0);
+        lv_obj_align(list_container_2, LV_ALIGN_TOP_MID, 5, 2);
         lv_obj_set_style_translate_x(list_container_2, lv_pct(50), 0);
         for (const auto& [index, sample] : box_2.samples | std::views::enumerate) {
             lv_obj_t* line = lv_label_create(list_container_2);
@@ -193,7 +193,7 @@ void build_header(FreezerAPI::FreezerContent freezer, lv_obj_t* screen) {
     lv_obj_set_style_pad_all(namebox, 0, 0);
     lv_obj_t* label = lv_label_create(namebox);
     lv_obj_align(label, LV_ALIGN_BOTTOM_LEFT, label_padding_L, label_padding_B);
-    lv_label_set_text_fmt(label, "%s\n%s%d", freezer.label.c_str(), "Layer ID: ", STORAGE_LAYER_ID); // name in system + the storage ID in config
+    lv_label_set_text_fmt(label, "%s\n%s%d", freezer.label.c_str(), "Layer ID: ", freezer_config.API_STORAGE_LAYER_ID); // name in system + the storage ID in config
     lv_obj_set_style_text_font(label, &lv_font_montserrat_20, 0);
     lv_obj_set_style_text_color(label, get_grayscale_color(6), 0);
     lv_obj_set_scrollbar_mode(namebox, LV_SCROLLBAR_MODE_OFF);
@@ -207,7 +207,7 @@ void build_header(FreezerAPI::FreezerContent freezer, lv_obj_t* screen) {
     lv_obj_set_style_pad_all(metabox, 0, 0);
     lv_obj_t* label_meta = lv_label_create(metabox);
     lv_obj_align(label_meta, LV_ALIGN_BOTTOM_LEFT, label_padding_L, label_padding_B);
-    lv_label_set_text_fmt(label_meta, "%s\n%s%s", API_ENDPOINT + 8, "Git commit: ", GIT_COMMIT_HASH);
+    lv_label_set_text_fmt(label_meta, "%s\n%s%s", freezer_config.API_ENDPOINT.c_str() + 8, "Git commit: ", GIT_COMMIT_HASH);
     lv_obj_set_style_text_font(label_meta, &lv_font_montserrat_20, 0);
     lv_obj_set_style_text_color(label_meta, get_grayscale_color(6), 0);
     lv_obj_set_scrollbar_mode(metabox, LV_SCROLLBAR_MODE_OFF);

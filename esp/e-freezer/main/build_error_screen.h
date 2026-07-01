@@ -33,7 +33,7 @@ void build_error_screen(VisualError vis_error,lv_obj_t* screen) {
     lv_obj_t* label_reboot = lv_label_create(screen);
     lv_obj_align(label_reboot, LV_ALIGN_CENTER, 0, 800);
     lv_obj_set_style_text_font(label_reboot, &lv_font_montserrat_20, 0);
-    lv_label_set_text_fmt(label_reboot, "Device will automatically retry connection.\n If the issue persists, consult %s", SUPPORT_PAGE_URL);
+    lv_label_set_text_fmt(label_reboot, "Device will automatically retry connection.\n If the issue persists, consult %s", freezer_config.SUPPORT_PAGE_URL.c_str());
     lv_obj_set_style_text_align(label_reboot, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN);
 
     // Solutions

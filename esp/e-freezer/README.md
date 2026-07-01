@@ -69,3 +69,6 @@ You will also need to increase the partition size for the application. Use `idf.
     * The baud rate for downloading is too high: lower your baud rate in the `menuconfig` menu, and try again.
 
 
+### TODO
+
+* Add instructions on how to get into reprogram mode once USB is active

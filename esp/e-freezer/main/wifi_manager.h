@@ -10,7 +10,7 @@
 #include "esp_crt_bundle.h"  // for https
 
 // get SSID and Password from config
-#include "config.h"
+#include "config_and_usb.h"
 
 // See https://developer.espressif.com/blog/getting-started-with-wifi-on-esp-idf/ for reference
 // most of this code is AI slopped 
@@ -91,11 +91,11 @@ public:
 
         // Configure WiFi credentials from config.h
         wifi_config_t wifi_config = {};
-        std::strcpy(reinterpret_cast<char*>(wifi_config.sta.ssid), CONFIG_WIFI_SSID);
-        std::strcpy(reinterpret_cast<char*>(wifi_config.sta.password), CONFIG_WIFI_PASSWORD);
+        std::strcpy(reinterpret_cast<char*>(wifi_config.sta.ssid), freezer_config.WIFI_SSID.c_str());
+        std::strcpy(reinterpret_cast<char*>(wifi_config.sta.password), freezer_config.WIFI_PASSWORD.c_str());
         wifi_config.sta.threshold.authmode = WIFI_AUTH_WPA2_PSK;
 
-        ESP_LOGI(TAG, "Connecting to AP '%s'...", CONFIG_WIFI_SSID);
+        ESP_LOGI(TAG, "Connecting to AP '%s'...", freezer_config.WIFI_SSID.c_str());
         ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
         ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &wifi_config));
         ESP_ERROR_CHECK(esp_wifi_start());

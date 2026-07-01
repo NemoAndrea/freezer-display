@@ -12,6 +12,8 @@
 #include "background_logic.h"
 #include "splash_screen.h"
 
+#include "config_and_usb.h"
+
 static const char* TAG = "main";
 
 // this task takes care of lv_timer_handler() and will update the actualy display 
@@ -25,9 +27,15 @@ void lvgl_task(void* pvParameters) {
     }
 }
 
+DeviceConfig freezer_config; // initialive a configuration struct
 
 extern "C" void app_main(void) {
+    xTaskCreatePinnedToCore(readConfigAndSetupUSB, "config_parsing_and_usb", 16 * 1024, NULL, 3, NULL, 0);
+
+     ESP_LOGI("MEM", "CONFIG: %s ", freezer_config.WIFI_SSID.c_str());
+
     static Device device;  // initialise the display (& IT8951 driver)
+    
     device.begin();  // TODO: not needed? run the initalisation command to the display
 
     build_splash_screen();  // will not be drawn until lvgl_task gets to run

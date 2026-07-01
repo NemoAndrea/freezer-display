@@ -1,3 +1,4 @@
+#pragma once
 #include "lvgl.h"
 
 // get a grayscale colour that we can use on the 4-bit dispaly
