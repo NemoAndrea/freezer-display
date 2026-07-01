@@ -1,5 +1,7 @@
 # E-Freezer configuration file
 
+# Make changes, save the text file, wait 10 seconds, and reboot the device (unplug and replug)
+
 [essential]
 api_endpoint = "https://tudelft.elabjournal.com/api/v1/"
 api_auth_token = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
@@ -9,7 +11,7 @@ wifi_password = "your_wifi_password"
 
 [ergonomics]
 minutes_between_refresh = 10  # how often to check API and update display
-support_page_url = "github.com/NemoAndrea/freezer-display" 
+support_page_url = "github.com/NemoAndrea/freezer-display"  # will be shown on error and splash screens
 
 [development]
 # Only change these if you know what you are doing

@@ -89,7 +89,7 @@ public:
         esp_wifi_get_mac(WIFI_IF_STA, mac);
         ESP_LOGI(TAG, "My MAC Addr: %02X:%02X:%02X:%02X:%02X:%02X", mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
 
-        // Configure WiFi credentials from config.h
+        // Configure WiFi credentials from config.txt
         wifi_config_t wifi_config = {};
         std::strcpy(reinterpret_cast<char*>(wifi_config.sta.ssid), freezer_config.WIFI_SSID.c_str());
         std::strcpy(reinterpret_cast<char*>(wifi_config.sta.password), freezer_config.WIFI_PASSWORD.c_str());
