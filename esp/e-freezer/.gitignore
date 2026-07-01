@@ -1,3 +1,6 @@
 build/*
 managed_components/*
 nixpkgs-esp-dev/
+sdkconfig
+sdkconfig.ci
+sdkconfig.old
