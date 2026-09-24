@@ -1,5 +1,3 @@
-# E-Freezer
-
 ## High level code overview
 
 The main operation loop is very simple; everyhting runs on a single core, as we do not need dynamic UI; we can hold up the UI updates while we run some checks or build a new screen.
@@ -11,6 +9,20 @@ We have two tasks running on the main core:
 Task number 2 has a higher priority than task 1, and will run whenever not explicitly paused. We run this task 2 on a loop with a long pause (with `vTaskDelay()`), during which lower priority processes such as our UI code will run. 
 
 This way we effectively only run our background processes only periodically.
+
+### User Configuration
+
+After device setup, the device can be configured by users by plugging it into any generic computer using a USB cable. The device will present itself as a USB drive containing a single plaintext config.txt file.
+
+This file can be opened and the fields therein can be edited. Upon the next restart of the device the settings will come into effect.
+
+You can check what values can be set in  [/fat_files/config.txt](fat_files/config.txt)
+
+### API configuration
+
+The current device software is set up to be rather specific for the eLabJournal system. It would be relatively straightforward to adapt it to alternative APIs, and/or other freezer layouts. In the current scope, moving to a highly generalisable system is not a priority.
+
+If you are interested in using the project, but are daunted by the task of figuring out how to use it with another API system or would just like to exchange some thoughts, please get in touch with one of the contributors.
 
 ### Tooling & Initial Configuration
 

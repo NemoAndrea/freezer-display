@@ -2,9 +2,11 @@
 
 ![Main assembly preview](.thumbnails/freezer-display-assembly.png)
 
+![explode view of the main assembly](../media/explode.jpg)
+
 The Hardware design for the E-freezer system is built around Waveshare's 10.3 inch high resolution E-ink panel. This panel is paired up with an ESP32-S3, connected through a shim PCB. This is all held together in an easy to 3D print enclosure that is designed to be as thin as possible. The display is held onto the target surface through embedded magnets.
 
-See the [BOM](BOM_freezer-display-assembly.csv) for details on the parts, pricing and where to source them.
+See the [BOM](BOM_freezer-display-assembly.csv) for details on the parts, pricing and where to source them. For a quick image preview of the different elements of the assembly, you can check the [thumbnails](.thumbnails/) diretory.
 
 To assemble the system, consult the [assembly instructions](assembly/README.md).
 
