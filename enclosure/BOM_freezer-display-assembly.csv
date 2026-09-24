@@ -1,0 +1,15 @@
+Description,Manufacturer,ManufacturerNr,Supplier,SupplierNr,Quantity,PriceEx,Comment
+3D printed part (internal frame),N/A,N/A,N/A,N/A,1,4,N/A
+3D printed frame (external part),N/A,N/A,N/A,N/A,1,4,N/A
+3D printed back panel,N/A,N/A,N/A,N/A,1,4,N/A
+Anti-slip pad,=3 M,SJ5312,SKS GmbH,10497,4,1.82,N/A
+10.3inch E-paper display,Waveshare,18434,Welectron,WS3-018434,1,192.44,N/A
+E-paper FPC adapter board,N/A,N/A,N/A,N/A,1,N/A,Included with the E-paper display.
+N/A,N/A,N/A,N/A,N/A,1,N/A,N/A
+E-paper IT8951 driver board,N/A,N/A,N/A,N/A,1,N/A,Included with the E-paper display. Requires some desoldering to be used in the assembly.
+Simple Custom Shim PCB,Aisler,N/A,N/A,N/A,1,13.95,See the PCB directory in the project repo for ordering files. Price is for the MOQ of 3 boards.
+ESP32-S3 Board (ProS3),Unexpected Maker,PS3D-01,tinytronics,5850,1,19.01,N/A
+M3 threaded inserts 3mm depth,cnc kitchen,4270002316416,N/A,N/A,12,0.75,N/A
+Neodymium Magnet 4x4x15mm,supermagnete.de,Q-15-04-04-MN,N/A,N/A,8,0.67,N/A
+M2.5 8mm screw (ISO7045),N/A,N/A,N/A,N/A,6,N/A,N/A
+M2.5 5mm screw (ISO7045),N/A,N/A,N/A,N/A,6,N/A,N/A

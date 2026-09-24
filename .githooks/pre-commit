@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+REPO_ROOT=$(git rev-parse --show-toplevel)
+
+# Find staged .FCStd files
+STAGED_FCSTD=$(git diff --cached --name-only --diff-filter=ACM | grep '\.FCStd$' || true)
+
+if [ -z "$STAGED_FCSTD" ]; then
+    exit 0
+fi
+
+for FILE in $STAGED_FCSTD; do
+    echo "Running pre-commit hook for FreeCAD file: $FILE"
+
+    BASENAME=$(basename "$FILE" .FCStd)    
+    FILE_DIR=$(dirname "$FILE")  # capture the directory of the FreeCAD file
+    PREVIEW="$FILE_DIR/.thumbnails/$BASENAME.png"
+    BOM="$FILE_DIR/BOM_$BASENAME.csv"
+
+    if ! python3 "$REPO_ROOT/.githooks/pre-commit-FCStd.py" "$FILE"; then
+        exit 1
+    fi
+
+    # commit the (thumnail-less) FreeCAD file and generated thumbnail and BOM
+    git add "$FILE"
+    if [ -f "$PREVIEW" ]; then  # can be absent if user disabled thumbnails (or git revert was ran)
+        git add "$PREVIEW"
+    fi
+    if [ -f "$BOM" ]; then  # can be absent if doc has no BOM (or git revert)
+        git add "$BOM"
+    fi
+done
+
+exit 0
