@@ -4,3 +4,4 @@ nixpkgs-esp-dev/
 sdkconfig
 sdkconfig.ci
 sdkconfig.old
+.*/

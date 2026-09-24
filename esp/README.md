@@ -12,9 +12,25 @@ Task number 2 has a higher priority than task 1, and will run whenever not expli
 
 This way we effectively only run our background processes only periodically.
 
+### Tooling & Initial Configuration
+
+When you first connect the UnexpectedMaker board via USB it will be mounted as a circuitpython drive. We want to use the native development tools instead, and must thus wipe the circuitpython installation. 
+
+We need to instal the python package `esptool`. I suggest you try out `uv`, but `pip` is of course perfectly adequate for the job.
+
+Wipe circuitpython with esptool and the command
+
+```bash
+# find port with e.g. tio package
+# you'll find something like /dev/ttyAMC0 (on linux)
+esptool.py --port /dev/ttyACM0 erase_flash
+```
+
+To build, flash and monitor the ESP32-S3, you will also need to install the [Espressif build tools](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html). 
+
 ### Compiling code and workflow
 
-Assuming you have the tooling required for the [Espressif IoT Development Framework](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html) (ESP-IDF) available on your system, you can run the following (in the current directory) to test if the code compiles:
+Assuming you followed the configuration instructions above, you can run the following (in the current directory) to test if the code compiles:
 
 ```
 idf.py build
@@ -31,6 +47,7 @@ This will try to automatically detect the port of the device. It is quicker to j
 ```
 # example port
 idf.py -p /dev/ttyACM0 flash monitor  
+# note that you can exit monitor with: ctrl+]
 ```
 
 When flashing, you probably do not want it to turn into a flash drive after booting. While developing, make sure to change the default config.txt which gets flashed to the device (located at [/fat_files/config.txt](fat_files/config.txt)) to specify `skip_usb` = true. Remember to set it back to `false` when you are ready to put the device back out in the wild again, as otherwise users won't have a way to change those essential configuration parameters!
