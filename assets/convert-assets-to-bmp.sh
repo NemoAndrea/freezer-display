@@ -5,11 +5,11 @@ inkscape splash_screen/splash_screen.svg --export-id="logo" --export-id-only --e
 
 inkscape splash_screen/splash_screen.svg --export-id="footer" --export-id-only --export-filename="bmp/splash_screen_footer.png" --export-dpi=96 --export-background=ffffff --export-background-opacity=1.0
 
-inkscape error_screens/error_screens.svg --export-id="no-api" --export-id-only --export-filename="bmp/error_no_api.png" --export-dpi=96 --export-background=ffffff --export-background-opacity=1.0
+inkscape error_screens/error_screens.svg --export-id="no-api-logo" --export-id-only --export-filename="bmp/error_no_api.png" --export-dpi=96 --export-background=ffffff --export-background-opacity=1.0
 
-inkscape error_screens/error_screens.svg --export-id="no-internet" --export-id-only --export-filename="bmp/error_no_internet.png" --export-dpi=96 --export-background=ffffff --export-background-opacity=1.0
+inkscape error_screens/error_screens.svg --export-id="no-internet-logo" --export-id-only --export-filename="bmp/error_no_internet.png" --export-dpi=96 --export-background=ffffff --export-background-opacity=1.0
 
-inkscape error_screens/error_screens.svg --export-id="no-wifi" --export-id-only --export-filename="bmp/error_no_wifi.png" --export-dpi=96 --export-background=ffffff --export-background-opacity=1.0
+inkscape error_screens/error_screens.svg --export-id="no-wifi-logo" --export-id-only --export-filename="bmp/error_no_wifi.png" --export-dpi=96 --export-background=ffffff --export-background-opacity=1.0
 
 # convert to 4bpp .bmp, mirror, and remove the png images
 
