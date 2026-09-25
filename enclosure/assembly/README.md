@@ -57,5 +57,5 @@ After adding the magnets, you can screw everything together and add the anti-sli
 
 To cosmetically finish off the part, or to provide some instructions and guidance for the user, you could apply text to the 3D printed parts.[^1]
 
-[^1]: This can be through laser engraving or through the application of stickers or waterslide decals. An example for such a design can be found in [the assets subdirectory](assets/enclosure-decal.svg).
+[^1]: This can be through laser engraving or through the application of stickers or waterslide decals. An example for such a design can be found in [the assets subdirectory](../assets/enclosure-decal.svg).
 [^2]: I don't think shorting is very likely, but with kapton tape it will be safe even under heavy abuse.
