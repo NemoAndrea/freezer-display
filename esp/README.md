@@ -10,6 +10,41 @@ Task number 2 has a higher priority than task 1, and will run whenever not expli
 
 This way we effectively only run our background processes only periodically.
 
+```mermaid
+---
+config:
+  flowchart:
+    curve: stepAfter
+---
+flowchart LR
+  subgraph Boot
+    A[Power on]
+    LOAD[Display Loading screen]
+  end
+  subgraph Main
+    WIFI{WiFi Connected?}
+    INET{Internet Connected?}
+    API{API access?}
+    RDR[Display Freezer Contents]
+    WAIT[Sleep until time]
+  end
+  
+  A --> LOAD
+  LOAD --> WIFI
+  WIFI --> INET
+  WIFI -- No ----> NWIFI[Error Screen Wifi]
+  INET --> API
+  INET -- No ----> NINET[Error Screen Internet]
+  API --> RDR
+  API -- No ----> NAPI[Error Screen API]
+  RDR --> WAIT
+  WAIT --> WIFI
+
+  click NWIFI "https://github.com/NemoAndrea/freezer-display/blob/main/assets/error_screens/error_screens.svg" "View Error Screen"
+  click NINET "https://github.com/NemoAndrea/freezer-display/blob/main/assets/error_screens/error_screens.svg" "View Error Screen"
+  click NAPI "https://github.com/NemoAndrea/freezer-display/blob/main/assets/error_screens/error_screens.svg" "View Error Screen"
+```
+
 ### User Configuration
 
 After device setup, the device can be configured by users by plugging it into any generic computer using a USB cable. The device will present itself as a USB drive containing a single plaintext config.txt file.
