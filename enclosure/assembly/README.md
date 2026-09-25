@@ -23,13 +23,15 @@ The IT8951 driver board must also be soldered onto the shim PCB. This can be tri
 
 ![](media/assembled-boards.png)
 
-> [!tip] At this point, I would flash the firmware and see if the system behaves as expected before continuing assembly.
+> [!TIP]
+> At this point, I would flash the firmware and see if the system behaves as expected before continuing assembly.
 
 In the 3D printed parts, insert the threaded inserts with a soldering iron. Be careful not to tilt them too far out of axis; the tolerances are not critical, but it is very easy to tilt the insert due to the limited amount of material around each insert point.
 
 Now we can just assemble the whole thing. 
 
-> [!warning] The Flexible PCB that is coming off the display is fragile. Be careful when handling or bending it.
+> [!WARNING]
+> The Flexible PCB that is coming off the display is fragile. Be careful when handling or bending it.
 
 We want to start by placing the (fragile) display into the outer frame. Note that the display has a protective cover film -- you may want to remove it. First insert the part of the display into the side of the E-freezer that is furthest from the charging port. Then lower it fully into the slot, carefully bending the Flex PCB
 
@@ -39,11 +41,13 @@ Next, you will want to disconnect the write ribbon cable from the IT8951 driver 
 
 ![](media/cable-routed.jpg)
 
-> [!tip] If you want to be super safe, you can cover the side of the IT8951 board that contacts the display with some Kapton Tape. 
+> [!TIP]
+> If you want to be super safe, you can cover the side of the IT8951 board that contacts the display with some Kapton Tape. 
 > That way it will not scratch the display or cause shorts[^2]. It also helps keep things in place as you try to fold it all together. Below an example with an older revision of the internal frame.
 > ![](media/kapton.jpg)
 
-> [!warning] Always wear safety goggles when handling neodymium (or strong) magnets.
+> [!CAUTION]
+> Always wear safety goggles when handling neodymium (or strong) magnets.
 
 At this stage, the magnets can be inserted. Make sure to have all their polarities point in the same way. Be careful with the magnets; they will want to shoot out of the pockets. Adding some thin painters tape or other way to keep them in the pocket is a good idea.
 
